@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  @Html.Partial("_Head")
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div class="wrapper">
+      @Html.Partial("_Sidebar")
+        <!--header-->
+    @Html.Partial("_Header")
+        <!--end header-->
+        <!--page-wrapper-->
+        <div class="page-wrapper">
+            <!--page-content-wrapper-->
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                  @RenderBody()
+                </div>
+            </div>
+            <!--end page-content-wrapper-->
+        </div>
+        <!--end page-wrapper-->
+        <!--start overlay-->
+        <div class="overlay toggle-btn-mobile"></div>
+        <!--end overlay-->
+  
+     @Html.Partial("_Footer")
+    </div>
+    <!--start switcher-->
+ 
+    <!--end switcher-->
+ @Html.Partial("_Script")
+</body>
+
+</html>

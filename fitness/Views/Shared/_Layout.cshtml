@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  @Html.Partial("_Head")
+</head>
+<body>
+ 
+     
+	<!--header section start -->
+    @Html.Partial("_Header")
+    <!-- header section end -->
+ 
+    <!-- footer section start -->
+    <div>
+        @RenderBody()
+    </div>
+@Html.Partial("_Footer")
+    <!-- footer section end -->
+
+@Html.Partial("_Script")  
+</body>
+</html>
