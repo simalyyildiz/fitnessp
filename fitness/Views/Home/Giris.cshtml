@@ -1,0 +1,29 @@
+﻿<div class="qr-container" style=" text-align: center;">
+    <img id="qr-code" style=" max-width: 100%; height: auto; margin-bottom: 20px;" src="placeholder.png" alt="QR Code">
+    <button style=" padding: 10px 20px; font-size: 16px; cursor: pointer;" onclick="loginWithQR()">Giriş Yap</button>
+
+
+
+    <div id="qr-code-container"></div>
+    <div id="random-number-container"></div>
+</div>
+<script>
+    // Rastgele 4 haneli sayı üretme
+    function generateRandomNumber() {
+        return Math.floor(1000 + Math.random() * 9000);
+    }
+
+    // QR kodunu oluştur ve göster
+    function generateQRCode() {
+        var randomQRCode = generateRandomNumber().toString();
+        var qrCodeContainer = document.getElementById("qr-code-container");
+        new QRCode(qrCodeContainer, randomQRCode);
+
+        var randomNumberContainer = document.getElementById("random-number-container");
+        randomNumberContainer.innerText = "Rastgele 4 Haneli Rakam: " + randomQRCode;
+    }
+
+    // Sayfa yüklendiğinde QR kodunu oluştur
+    window.onload = generateQRCode;
+</script>
+<script src="https://cdn.rawgit.com/neocotic/qrious/v4.0.2/qrious.min.js"></script>

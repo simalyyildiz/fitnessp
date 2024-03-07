@@ -14,6 +14,7 @@ namespace fitness.Models
 
         public virtual DbSet<ContactMessage> ContactMessages { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+        public object Users { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

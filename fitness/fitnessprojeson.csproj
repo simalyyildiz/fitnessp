@@ -787,7 +787,6 @@
     <Content Include="Areas\Admin\Content\images\login-images\register-frent-img.jpg" />
     <Content Include="Areas\Admin\Content\images\logo-icon.png" />
     <Content Include="Areas\Admin\Content\images\logo-img.png" />
-    <Content Include="Content\img\Home GYM&amp;PLAYING Zone.jpeg" />
     <Content Include="Content\img\unnamed.jpg" />
     <Content Include="Content\img\zumba.jpg" />
     <Content Include="Areas\Admin\Content\plugins\apexcharts-bundle\css\apexcharts.css" />
@@ -1094,9 +1093,6 @@
     <Content Include="Views\Home\Ekip.cshtml" />
     <Content Include="Views\Home\Fiyat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\User.cshtml" />
-    <Content Include="Views\Home\Kullanici.cshtml" />
-    <Content Include="Views\Home\Giris.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
