@@ -1047,6 +1047,9 @@
     <Content Include="Areas\Admin\Views\ContactMessage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Invoice\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Kayıt\Index.cshtml" />
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

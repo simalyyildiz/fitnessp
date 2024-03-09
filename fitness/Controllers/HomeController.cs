@@ -92,9 +92,33 @@ namespace fitness.Controllers
            
             return View(users);
         }
-        public ActionResult Kullanici()
+
+        public ActionResult Kullanici(String email, string password)
         {
-            return View();
+
+            Users users = new Users()
+            {
+                Email = email,
+                Password = password,
+            };
+            var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+
+            if (user != null)
+            {
+               
+                Session["UserId"] = user.UserId;
+
+           
+                return RedirectToAction("Home", "Giris");
+            }
+            else
+            {
+          
+                ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
+                return View();
+        }
+
+          
         }
         public ActionResult Giris()
         {
@@ -102,3 +126,4 @@ namespace fitness.Controllers
         }
     }
 }
+
