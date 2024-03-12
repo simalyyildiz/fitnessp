@@ -26,7 +26,7 @@ namespace fitness.Controllers
         }
 
         [HttpPost]
-        public ActionResult Contact(string fullname, string email, string message)
+        public ActionResult ContactMessage(string fullname, string email, string message)
         {
             ContactMessage contactMessage = new ContactMessage()
             {
@@ -101,24 +101,24 @@ namespace fitness.Controllers
                 Email = email,
                 Password = password,
             };
-            var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+            //var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
 
-            if (user != null)
-            {
-               
-                Session["UserId"] = user.UserId;
+            //if (user != null)
+            //{
 
-           
-                return RedirectToAction("Home", "Giris");
-            }
-            else
-            {
-          
-                ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
+            //    Session["UserId"] = user.UserId;
+
+
+            //    return RedirectToAction("Home", "Giris");
+            //}
+            //else
+            //{
+
+            //    ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
                 return View();
-        }
+            //}
 
-          
+
         }
         public ActionResult Giris()
         {

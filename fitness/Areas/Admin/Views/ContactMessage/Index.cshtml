@@ -1,4 +1,54 @@
-﻿@model IEnumerable<fitness.Models.ContactMessage>
+﻿@*@model fitness.Models.ContactMessage
+
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+    <div class="col-lg-3">
+        <div class="card radius-15 bg-primary">
+            <div class="card-body text-center">
+                <div class="parent-icon icon-color-1" style="font-size:xx-large;">
+                    <i class="lni lni-user"></i>
+                </div>
+                <h5 class="mb-0 mt-4 text-white">
+                    @Html.DisplayNameFor(model => model.FullName)
+                </h5>
+                <p class="mb-0 text-white">
+                    @Html.DisplayNameFor(model => model.Email)
+                </p>
+                <p style="color:white;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </p>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+
+
+
+@*@model fitness.Models.ContactMessage
+
+    @{ ViewBag.Title = "Index"; Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+
+    <div class="col-lg-3"> <div class="card radius-15 bg-primary"> <div class="card-body text-center">
+        <div class="parent-icon icon-color-1" style="font-size:xx-large;">
+        <i class="lni lni-user"></i>
+            </div>
+        <h5 class="mb-0 mt-4 text-white"> @Html.DisplayNameFor(model => model.FullName) </h5>
+        <p class="mb-0 text-white"> @Html.DisplayNameFor(model => model.Email) </p>
+        <p style="color:white;"> @Html.DisplayNameFor(model => model.Description) </p>
+              </div>
+          </div>
+        </div>*@
+
+
+
 
 @{
     ViewBag.Title = "Index";
@@ -9,19 +59,11 @@
         <div class="card-body text-center">
             <div class="parent-icon icon-color-1" style="font-size:xx-large;">
                 <i class="lni lni-user"></i>
-            </div>           
-            <h5 class="mb-0 mt-4 text-white">
-                @Html.DisplayNameFor(model => model.FullName)
-            </h5>
-            <p class="mb-0 text-white">
-                @Html.DisplayNameFor(model => model.Email)
-            </p>
-            <p style="color:white;">
-                @Html.DisplayNameFor(model => model.Description)
-            </p>
+            </div>
+            <h5 class="mb-0 mt-4 text-white"> fghujıkol </h5>
+            <p class="mb-0 text-white">gvhbjnkmlöşç </p>
+            <p style="color:white;">gchvjbklşöçi</p>
         </div>
     </div>
 </div>
-
-
 

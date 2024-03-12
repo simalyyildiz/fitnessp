@@ -8,6 +8,7 @@ namespace fitness.Models
 
     public partial class ContactMessage
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [StringLength(64)]
