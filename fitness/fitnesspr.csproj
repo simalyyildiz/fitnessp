@@ -129,7 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\ContactMessageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactMessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
@@ -1044,7 +1044,7 @@
     <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MainPage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contacts\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ContactMessage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ContactMessages\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Invoice\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Kayıt\Index.cshtml" />
     <Content Include="..\.editorconfig">
@@ -1097,7 +1097,7 @@
     <Content Include="Views\Home\Ekip.cshtml" />
     <Content Include="Views\Home\Fiyat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\User.cshtml" />
+    <Content Include="Views\Home\Users.cshtml" />
     <Content Include="Views\Home\Kullanici.cshtml" />
     <Content Include="Views\Home\Giris.cshtml" />
   </ItemGroup>

@@ -18,7 +18,7 @@ namespace fitness.Areas.Admin.Controllers
         // GET: Admin/ContactMessages
         public ActionResult Index()
         {
-            return View(db.ContactMessages.ToList());
+            return View(db.ContactMessages);
         }
 
         // GET: Admin/ContactMessages/Edit/5

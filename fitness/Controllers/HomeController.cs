@@ -78,7 +78,7 @@ namespace fitness.Controllers
         //    //}
         //    return View(users);
         //}
-      public ActionResult User(string fullname, string email, string phone, string password, string paket)
+      public ActionResult Users(string fullname, string email, string phone, string password, string paket)
         {
             Users users = new Users()
             {
@@ -115,7 +115,8 @@ namespace fitness.Controllers
             //{
 
             //    ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
-                return View();
+               
+            return View();
             //}
 
 
