@@ -24,5 +24,8 @@ namespace fitness.Models
 
         [StringLength(50)]
         public string Paket { get; set; }
+
+        [StringLength(255)]
+        public string QRCode { get; set; }
     }
 }

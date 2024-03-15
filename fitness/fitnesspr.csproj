@@ -143,7 +143,10 @@
     <Compile Include="Models\AcademyContext.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Model3.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1041,7 +1044,6 @@
     <Content Include="Areas\Admin\Views\Shared\_Footer.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Sidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Script.cshtml" />
-    <Content Include="Areas\Admin\Views\DashBoard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MainPage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Contacts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ContactMessages\Index.cshtml" />
@@ -1050,6 +1052,7 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1093,18 +1096,21 @@
     <Content Include="Views\Shared\_Script.cshtml" />
     <Content Include="Views\Shared\_Head.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ContactMessage.cshtml" />
     <Content Include="Views\Home\Ekip.cshtml" />
     <Content Include="Views\Home\Fiyat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Users.cshtml" />
     <Content Include="Views\Home\Kullanici.cshtml" />
     <Content Include="Views\Home\Giris.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\DashBoard\" />
+    <Folder Include="Areas\Admin\Views\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

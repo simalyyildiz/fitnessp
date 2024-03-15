@@ -25,26 +25,53 @@ namespace fitness.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ContactMessage(string fullname, string email, string message)
+        //[HttpPost]
+        //public ActionResult ContactMessage(string fullname, string email, string message)
+        //{
+        //    ContactMessage contactMessage = new ContactMessage()
+        //    {
+
+        //        FullName = fullname,
+        //        Email = email,
+        //        Description = message,
+
+        //    };
+        //    context.ContactMessages.Add(contactMessage);
+        //    context.SaveChanges();
+        //    Contact contacts = context.Contacts.FirstOrDefault();
+        //    return View(contacts);
+        //}
+        public ActionResult Contact(string title, string email, string phone, string message)
         {
-            ContactMessage contactMessage = new ContactMessage()
+            // Yeni bir Contact nesnesi oluşturarak gelen değerleri atıyoruz.
+            Contact contact = new Contact
             {
-
-                FullName = fullname,
+                Title = title,
                 Email = email,
-                Description = message,
-
+                Phone = phone,
+                Description = message
             };
-            context.ContactMessages.Add(contactMessage);
-            context.SaveChanges();
-            Contact contacts = context.Contacts.FirstOrDefault();
-            return View(contacts);
+
+            try
+            {
+                // Contact nesnesini veritabanına ekliyoruz.
+                context.Contacts.Add(contact);
+                context.SaveChanges();
+
+                // Kullanıcı başarıyla eklenmişse, başka bir sayfaya yönlendiriyoruz.
+                return RedirectToAction("BasariSayfasi", "ControllerAdi");
+            }
+            catch (Exception ex)
+            {
+                // Eğer bir hata oluşursa, hata mesajını göstermek için ViewBag kullanabiliriz.
+                ViewBag.ErrorMessage = "Kullanıcı eklenirken bir hata oluştu: " + ex.Message;
+
+                // Hata durumunda kullanıcıyı aynı sayfada tutabiliriz.
+                return View();
+            }
         }
-        public ActionResult Contact()
-        {
-            return View();
-        }
+ 
+
         public ActionResult Ekip()
         {
             return View();
@@ -88,9 +115,10 @@ namespace fitness.Controllers
                 Password = password,
                 Paket = paket,
             };
+            context.Users.Add(users);
             context.SaveChanges();
-           
-            return View(users);
+            Users users1 = context.Users.FirstOrDefault();
+            return View(users1);
         }
 
         public ActionResult Kullanici(String email, string password)
@@ -125,6 +153,7 @@ namespace fitness.Controllers
         {
             return View();
         }
-    }
+
+     }
 }
 
