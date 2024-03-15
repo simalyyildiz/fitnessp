@@ -51,26 +51,14 @@ namespace fitness.Controllers
                 Phone = phone,
                 Description = message
             };
+            context.Contacts.Add(contact);
+            context.SaveChanges();
+            Contact contacts = context.Contacts.FirstOrDefault();
+            return View("Contact", contacts);
 
-            try
-            {
-                // Contact nesnesini veritabanına ekliyoruz.
-                context.Contacts.Add(contact);
-                context.SaveChanges();
 
-                // Kullanıcı başarıyla eklenmişse, başka bir sayfaya yönlendiriyoruz.
-                return RedirectToAction("BasariSayfasi", "ControllerAdi");
-            }
-            catch (Exception ex)
-            {
-                // Eğer bir hata oluşursa, hata mesajını göstermek için ViewBag kullanabiliriz.
-                ViewBag.ErrorMessage = "Kullanıcı eklenirken bir hata oluştu: " + ex.Message;
-
-                // Hata durumunda kullanıcıyı aynı sayfada tutabiliriz.
-                return View();
-            }
         }
- 
+
 
         public ActionResult Ekip()
         {
@@ -129,23 +117,23 @@ namespace fitness.Controllers
                 Email = email,
                 Password = password,
             };
-            //var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+            var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
 
-            //if (user != null)
-            //{
+            if (user != null)
+            {
 
-            //    Session["UserId"] = user.UserId;
+                Session["UserId"] = user.FullName;
 
 
-            //    return RedirectToAction("Home", "Giris");
-            //}
-            //else
-            //{
+                return RedirectToAction("Kullanici", "Home");
+            }
+            else
+            {
 
-            //    ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
-               
-            return View();
-            //}
+                ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
+
+                return View();
+            }
 
 
         }
