@@ -132,7 +132,7 @@
     <Compile Include="Areas\Admin\Controllers\ContactMessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FiyatlandırmaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FiyatlandirmaController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\KayıtController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainPageController.cs" />
@@ -1062,6 +1062,7 @@
     <Content Include="Areas\Admin\Views\Fiyatlandırma\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlandırma\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlandırma\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Fiyatlandırma\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

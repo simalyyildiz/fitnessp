@@ -39,5 +39,8 @@ namespace fitness.Models
 
         [StringLength(10)]
         public string Fiyat { get; set; }
+        public string ProfosyonelFiyat { get; internal set; }
+        public string BaslangicFiyat { get; internal set; }
+        public string PremiumFiyat { get; internal set; }
     }
 }

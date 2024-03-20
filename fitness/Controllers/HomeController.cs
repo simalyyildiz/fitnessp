@@ -92,6 +92,7 @@ namespace fitness.Controllers
         //    //}
         //    return View(users);
         //}
+        [HttpPost]
      public ActionResult Users(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat)
 {
     if (baslangic == null || premium == null || profosyonel == null || baslangicfiyat == null || premiumfiyat == null || profosyonelfiyat == null)
