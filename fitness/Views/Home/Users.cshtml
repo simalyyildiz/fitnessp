@@ -57,65 +57,174 @@
         <button type="submit" style="background-color: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button>
     </div>
 </div>-->
+<!--<div>
+
+    <div style="width:600px; margin-left:2rem;">
+        <div class="form-group" style="margin-top:2rem;">
+            <br />
+            <label style="margin-top:2rem;" for="name">İsim Soyisim </label> <br />
+            <input type="text" id="name" name="name" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;"> <br />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+    <div class="form-group" style="width: 600px; margin-left: 2rem; background-color: #f1f1f1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+        <label for="package">Paket</label>-->
+<!-- Premium Paket -->
+<!--<div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+    <label for="premium">BAŞLANGIÇ PLANI</label>
+    <span style="color: #4caf50; margin-left: 10px;">3000₺</span>
+</div>-->
+<!-- Special Paket -->
+<!--<div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+    <input type="radio" id="special" name="package" style="margin-right: 5px;">
+    <label for="special">PREMIUM PLAN</label>
+    <span style="color: #4caf50; margin-left: 10px;">4500₺</span>
+</div>-->
+<!-- Free Paket -->
+<!--<div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <input type="radio" id="free" name="package" style="margin-right: 5px;">
+            <label for="free">PROFOSYONEL PLAN</label>
+            <span style="color: #4caf50; margin-left: 10px;">5200₺</span>
+        </div>
+    </div>
+
+    <button type="submit" style="background-color: #4caf50;margin-left:12rem;margin-bottom:2rem; width:15rem; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button>
+
+    <h1 style="margin-left:2rem; color:darkred"><a style="color:red" href="@Url.Action("Kullanici" ,"Home")">Kayıtlı mısınız?</a> </h1>
+</div>-->
+@model fitness.Models.Users
+
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 
+<div class="row  ">
 
-
-
-<div class="row">
-
-
-    <div>
-
-        <div style="width:600px; margin-left:2rem;">
-            <div class="form-group" style="margin-top:2rem;">
-                <br />
-                <label style="margin-top:2rem;" for="name">İsim Soyisim </label> <br />
-                <input type="text" id="name" name="name" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;"> <br />
+    <div class="registration-container col-6 mt-5">
+        <h2 style="color: #4caf50; text-align: center;">Üyelik Kayıt Formu</h2>
+        <div class="registration-form" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <div class="form-group">
+                <label for="adSoyad" style="display: block; margin-bottom: 8px;">  @Html.DisplayNameFor(model => model.FullName)</label>
+                <input type="text" id="adSoyad" name="adSoyad" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
             </div>
 
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" style="display: block; margin-bottom: 8px;">  @Html.DisplayNameFor(model => model.Email)</label>
                 <input type="email" id="email" name="email" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
             </div>
 
             <div class="form-group">
-                <label for="telefon">Telefon</label>
+                <label for="telefon" style="display: block; margin-bottom: 8px;">  @Html.DisplayNameFor(model => model.Phone)</label>
                 <input type="tel" id="telefon" name="telefon" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
             </div>
+
+            <div class="form-group" style="background-color: #f1f1f1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+
+                <label for="package" style="display: block; margin-bottom: 8px;">  @Html.DisplayNameFor(model => model.Paket)</label>
+
+                <!-- Premium Paket -->
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+                    <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.Baslangic)</label>
+                    <span style="color: #4caf50; margin-left: 10px;"> @Html.DisplayNameFor(model => model.BaslangicFiyat)</span>
+                </div>
+
+                <!-- Special Paket -->
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="special" name="package" style="margin-right: 5px;">
+                    <label for="special" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Premium)</label>
+                    <span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.PremiumFiyat)</span>
+                </div>
+
+                <!-- Free Paket -->
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                    <input type="radio" id="free" name="package" style="margin-right: 5px;">
+                    <label for="free" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Profosyonel)</label>
+                    <span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.ProfosyonelFiyat)</span>
+                </div>
+            </div>
+
+
+            <form id="registrationForm">
+                <!-- Add your form fields here -->
+                <button type="submit" style="background-color: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button>
+            </form>
+
+            <h3 style="margin-top:1rem; color:darkred"><a style="color:red" href="@Url.Action("Kullanici" ,"Home")">Kayıtlı mısınız?</a> </h3>
         </div>
-        <div class="form-group" style="width: 600px; margin-left: 2rem; background-color: #f1f1f1; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
 
-            <label for="package">Paket</label>
-
-            <!-- Premium Paket -->
-            <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
-                <input type="radio" id="premium" name="package" style="margin-right: 5px;">
-                <label for="premium">BAŞLANGIÇ PLANI</label>
-                <span style="color: #4caf50; margin-left: 10px;">3000₺</span>
-            </div>
-
-            <!-- Special Paket -->
-            <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
-                <input type="radio" id="special" name="package" style="margin-right: 5px;">
-                <label for="special">PREMIUM PLAN</label>
-                <span style="color: #4caf50; margin-left: 10px;">4500₺</span>
-            </div>
-
-            <!-- Free Paket -->
-            <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
-                <input type="radio" id="free" name="package" style="margin-right: 5px;">
-                <label for="free">PROFOSYONEL PLAN</label>
-                <span style="color: #4caf50; margin-left: 10px;">5200₺</span>
-            </div>
-        </div>
-
-        <button type="submit" style="background-color: #4caf50;margin-left:12rem;margin-bottom:2rem; width:15rem; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button>
-
-        <h1 style="margin-left:2rem; color:darkred"><a style="color:red" href="@Url.Action("Kullanici" ,"Home")">Kayıtlı mısınız?</a> </h1>
     </div>
+
 
     <div>
-        <img style="margin-left:3rem; height:45rem;"  src="~/Content/img/Home GYM&PLAYING Zone.jpeg" />
+        <img style="margin-left:3rem; height:45rem;" src="~/Content/img/Home GYM&PLAYING Zone.jpeg" />
     </div>
 </div>
+
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+
+  fetch('@Url.Action("Kaydet", "Users")', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+});
+</script>
+
+<!--<form id="kayitFormu">--> <!-- Buraya kayıt formunun alanlarını ekle --> <!--<button type="submit" style="background-color: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button> </form>
+<script>
+ // Kayıt formunun gönderilmesini dinle document.getElementById('kayitFormu').addEventListener('submit', function(event) { // Kayıt formunun varsayılan davranışını engelle event.preventDefault();
+// Kayıt formundan verileri al const formData = new FormData(event.target);
+
+// Sunucu tarafına POST isteği gönder fetch('@Url.Action("Kaydet", "Kullanicilar")', { method: 'POST', body: formData }) .then(response => response.text()) .then(data => { // Sunucu tarafından gelen yanıtı işle console.log(data); }) .catch(error => { // İsteğin sırasında oluşan herhangi bir hata işle console.error(error); }); }); </script>
+
+<form id="registrationForm">-->
+    <!-- Add your form fields here -->
+    <!--<button type="submit" style="background-color: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button>
+</form>
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get form data
+  const formData = new FormData(event.target);
+
+  // Send a POST request to the server-side script
+  fetch('@Url.Action("Register", "Users")', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    // Handle the response from the server-side script
+    console.log(data);
+  })
+  .catch(error => {
+    // Handle any errors that occur during the request
+    console.error(error);
+  });
+});
+</script>-->

@@ -1,29 +1,133 @@
-﻿<div class="qr-container" style=" text-align: center;">
-    <img id="qr-code" style=" max-width: 100%; height: auto; margin-bottom: 20px;" src="placeholder.png" alt="QR Code">
-    <button style=" padding: 10px 20px; font-size: 16px; cursor: pointer;" onclick="loginWithQR()">Giriş Yap</button>
+﻿@model fitness.Models.Users
+
+<div class="qr-container" style="margin-top:10rem; margin-bottom:2rem; ">
+    <div class=" row" style="font-weight:10rem;margin-top:2rem; margin-bottom:2rem;">
+        <div style="margin-left: 10rem; margin-top: 2rem; margin-bottom: 2rem;">
+            <h1>@Html.DisplayNameFor(model => model.FullName)</h1>
+            <h1>@Html.DisplayNameFor(model => model.Paket)</h1>
+        </div>
+        <div style="margin-left: 15rem; margin-top: 2rem; margin-bottom: 2rem;">
+            <div id="qr-code-container">@Html.DisplayFor(model => model.QRCode)</div>
+            <div id="random-number-container"></div>
+        </div>
+        <div>
+            <img class="rounded-circle " src="~/Content/img/0a0b494aca2916c72ac04264690b7436.png" style= "margin-left:16rem;  width: 16rem; height: 16rem;" />
+        </div>
+    </div>
+   
+</div>
+
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<script>
+    // Sayfa yüklendiğinde QR kodunu oluştur
+    window.onload = function () {
+        var qrCodeContainer = document.getElementById("qr-code-container");
+        var qrCodeData = qrCodeContainer.innerText;
+        generateQRCode(qrCodeData);
+    };
+
+    // QR kodunu oluştur ve göster
+    function generateQRCode(qrCodeData) {
+        var qrCodeContainer = document.createElement("div");
+        qrCodeContainer.id = "qr-code";
+        document.getElementById("qr-code-container").appendChild(qrCodeContainer);
+        new QRCode(qrCodeContainer, {
+            text: qrCodeData,
+            width: 128,
+            height: 128
+        });
+
+        var randomNumberContainer = document.getElementById("random-number-container");
+        randomNumberContainer.innerText = "Qr kodunuz " + qrCodeData;
+    }
+</script>
 
 
+<!--<?php
+// Assuming you have a MySQL database
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$database = "your_database";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch the QR code from the Users table
+$sql = "SELECT QRCode FROM Users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of each row
+    $row = $result->fetch_assoc();
+    $qrCodeData = $row["QRCode"];
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>-->
+<!-- HTML part -->
+<!--<div class="qr-container" style="text-align: center;">
+    <img id="qr-code" style="max-width: 100%; height: auto; margin-bottom: 20px;" src="data:image/png;base64, <?php echo base64_encode($qrCodeData); ?>" alt="QR Code">
+    <button style="padding: 10px 20px; font-size: 16px; cursor: pointer;" onclick="loginWithQR()">Giriş Yap</button>
 
     <div id="qr-code-container"></div>
     <div id="random-number-container"></div>
 </div>
-<script>
-    // Rastgele 4 haneli sayı üretme
-    function generateRandomNumber() {
-        return Math.floor(1000 + Math.random() * 9000);
-    }
 
-    // QR kodunu oluştur ve göster
-    function generateQRCode() {
-        var randomQRCode = generateRandomNumber().toString();
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+<script>
+    // Sayfa yüklendiğinde QR kodunu oluştur
+    window.onload = function () {
         var qrCodeContainer = document.getElementById("qr-code-container");
-        new QRCode(qrCodeContainer, randomQRCode);
+        new QRCode(qrCodeContainer, "<?php echo $qrCodeData; ?>");
 
         var randomNumberContainer = document.getElementById("random-number-container");
-        randomNumberContainer.innerText = "Rastgele 4 Haneli Rakam: " + randomQRCode;
-    }
+        randomNumberContainer.innerText = "QR Kod: <?php echo $qrCodeData; ?>";
+    };
+</script>-->
+@*<div class="qr-container" style="text-align: center;">
+        <img id="qr-code" style="max-width: 100%; height: auto; margin-bottom: 20px;" src="placeholder.png" alt="QR Code">
+        <button style="padding: 10px 20px; font-size: 16px; cursor: pointer;" onclick="loginWithQR()">Giriş Yap</button>
 
-    // Sayfa yüklendiğinde QR kodunu oluştur
-    window.onload = generateQRCode;
-</script>
-<script src="https://cdn.rawgit.com/neocotic/qrious/v4.0.2/qrious.min.js"></script>
+        <div id="qr-code-container"></div>
+        <div id="random-number-container"></div>
+    </div>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script>
+        // Fetch QR code data from server
+        function fetchQRCodeData() {
+            fetch('/api/qrcode')
+                .then(response => response.json())
+                .then(data => {
+                    generateQRCode(data.QRCode);
+                    displayRandomNumber(data.QRCode);
+                })
+                .catch(error => console.error('Error fetching QR code data:', error));
+        }
+
+        // Generate QR code
+        function generateQRCode(qrCodeData) {
+            var qrCodeContainer = document.getElementById("qr-code-container");
+            new QRCode(qrCodeContainer, qrCodeData);
+        }
+
+        // Display random number
+        function displayRandomNumber(randomQRCode) {
+            var randomNumberContainer = document.getElementById("random-number-container");
+            randomNumberContainer.innerText = "Rastgele 4 Haneli Rakam: " + randomQRCode;
+        }
+
+        // Call fetchQRCodeData on page load
+        window.onload = fetchQRCodeData;
+    </script>*@

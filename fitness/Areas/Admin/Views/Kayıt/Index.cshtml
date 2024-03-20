@@ -30,21 +30,21 @@
             <!-- Premium Paket -->
             <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
                 <input type="radio" id="premium" name="package" style="margin-right: 5px;">
-                <label for="premium" style="margin-bottom: 0;">BAŞLANGIÇ PLANI</label>
+                <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.Baslangic)</label>
                 <span style="color: #4caf50; margin-left: 10px;">3000₺</span>
             </div>
 
             <!-- Special Paket -->
             <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
                 <input type="radio" id="special" name="package" style="margin-right: 5px;">
-                <label for="special" style="margin-bottom: 0;">PREMIUM PLAN</label>
+                <label for="special" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Premium)</label>
                 <span style="color: #4caf50; margin-left: 10px;">4500₺</span>
             </div>
 
             <!-- Free Paket -->
             <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
                 <input type="radio" id="free" name="package" style="margin-right: 5px;">
-                <label for="free" style="margin-bottom: 0;">PROFOSYONEL PLAN</label>
+                <label for="free" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Profosyonel)</label>
                 <span style="color: #4caf50; margin-left: 10px;">5200₺</span>
             </div>
         </div>

@@ -43,7 +43,6 @@ namespace fitness.Controllers
         //}
         public ActionResult Contact(string title, string email, string phone, string message)
         {
-            // Yeni bir Contact nesnesi oluşturarak gelen değerleri atıyoruz.
             Contact contact = new Contact
             {
                 Title = title,
@@ -93,8 +92,45 @@ namespace fitness.Controllers
         //    //}
         //    return View(users);
         //}
-      public ActionResult Users(string fullname, string email, string phone, string password, string paket)
+     public ActionResult Users(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat)
+{
+    if (baslangic == null || premium == null || profosyonel == null || baslangicfiyat == null || premiumfiyat == null || profosyonelfiyat == null)
+    {
+        // Eksik parametreler olduğunda hatayı işleyin
+        return View(); // Hata sayfasına yönlendirme yapabilirsiniz
+    }
+
+    Users users = new Users()
+    {
+        FullName = fullname,
+        Email = email,
+        Phone = phone,
+        Password = password,
+        Paket = paket,
+        Baslangic = baslangic.Value,
+        Premium = premium.Value,
+        Profosyonel = profosyonel.Value,
+        BaslangicFiyat = baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000",
+        PremiumFiyat = premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500", 
+        ProfosyonelFiyat = profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200"
+    };
+    context.Users.Add(users);
+    context.SaveChanges();
+    Users users1 = context.Users.FirstOrDefault();
+    return View(users1);
+}
+
+
+
+
+
+
+        public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat)
         {
+            // Kodunuz buraya gelecek
+ 
+
+            // Veritabanından kullanıcıları alın
             Users users = new Users()
             {
                 FullName = fullname,
@@ -102,46 +138,30 @@ namespace fitness.Controllers
                 Phone = phone,
                 Password = password,
                 Paket = paket,
+                QRCode = qrcode,
+                Baslangic = baslangic,
+                Premium = premium,
+                Profosyonel = profosyonel,
+                BaslangicFiyat = baslangicfiyat.HasValue ? baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000" : null,
+                PremiumFiyat = premiumfiyat.HasValue ? premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500" : null,
+                ProfosyonelFiyat = profosyonelfiyat.HasValue ? profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200" : null
+
             };
-            context.Users.Add(users);
-            context.SaveChanges();
-            Users users1 = context.Users.FirstOrDefault();
-            return View(users1);
-        }
 
-        public ActionResult Kullanici(String email, string password)
-        {
-
-            Users users = new Users()
-            {
-                Email = email,
-                Password = password,
-            };
-            var user = context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
-
-            if (user != null)
-            {
-
-                Session["UserId"] = user.FullName;
-
-
-                return RedirectToAction("Kullanici", "Home");
-            }
-            else
-            {
-
-                ViewBag.ErrorMessage = "Giriş bilgileri hatalı.";
-
-                return View();
-            }
-
-
+            return View(users); // Kullanıcıları görünüme gönderin
         }
         public ActionResult Giris()
         {
-            return View();
+            var user = new Users
+            {
+                FullName = "John Doe",
+                Paket = "Gold", 
+                QRCode = "123456" 
+            };
+
+            return View(user);
         }
 
-     }
+    }
 }
 

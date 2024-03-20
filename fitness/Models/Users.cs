@@ -27,5 +27,17 @@ namespace fitness.Models
 
         [StringLength(255)]
         public string QRCode { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Baslangic { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Premium { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? Profosyonel { get; set; }
+
+        [StringLength(10)]
+        public string Fiyat { get; set; }
     }
 }
