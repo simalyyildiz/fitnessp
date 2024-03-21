@@ -1,0 +1,50 @@
+﻿@model IEnumerable<fitness.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+            <th>
+                Başlangıç
+            </th>
+            <th>
+                Profosyonel
+            </th>
+            <th>
+                Premium
+            </th>
+            <th>
+                Premium Fiyat
+            </th>
+            <th>
+                Başlangıç Fiyat
+            </th>
+            <th>
+                Profosyonel Fiyat
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td> @users.Baslangic  </td>
+                <td> @users.Profosyonel  </td>
+                <td> @users.Premium  </td>
+                <td> @users.BaslangicFiyat  </td>
+                <td> @users.ProfosyonelFiyat  </td>
+                <td> @users.PremiumFiyat  </td>
+                <td> <a href="/FIYAT/SIL" class="btn btn-danger"></a> Sil</td>
+                <td> <a href="/FIYAT/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>

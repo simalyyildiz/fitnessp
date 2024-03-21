@@ -8,5 +8,6 @@
         public object Kullanici { get; internal set; }
         public object Users { get; internal set; }
 
+
     }
 }

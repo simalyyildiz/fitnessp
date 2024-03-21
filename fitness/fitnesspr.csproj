@@ -132,7 +132,8 @@
     <Compile Include="Areas\Admin\Controllers\ContactMessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FiyatlandirmaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Fiyatlandirmadneme2Controller.cs" />
+    <Compile Include="Areas\Admin\Controllers\FiyatlarController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\KayıtController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainPageController.cs" />
@@ -145,14 +146,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\Model2.cs" />
-    <Compile Include="Models\Model3.cs" />
-    <Compile Include="Models\Model4.cs" />
-    <Compile Include="Models\Model5.cs" />
-    <Compile Include="Models\Model6.cs" />
-    <Compile Include="Models\Model7.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Views\Home\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1058,11 +1052,12 @@
       <Link>.editorconfig</Link>
     </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlandirma.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlandırma\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlandırma\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlandırma\Update.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlandırma\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\FiyatlandırmaDENEME\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FiyatlandırmaDENEME\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\FiyatlandırmaDENEME\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\FiyatlandırmaDENEME\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Fiyatlandirmadneme2\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Fiyatlar\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

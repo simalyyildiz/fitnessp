@@ -8,7 +8,7 @@ namespace fitness.Models
 
     public partial class Users
     {
-        public int id { get; set; }
+        public int Ýd { get; set; }
 
         [StringLength(60)]
         public string FullName { get; set; }

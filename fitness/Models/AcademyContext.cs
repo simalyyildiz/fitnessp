@@ -16,6 +16,7 @@ namespace fitness.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public object Payments { get; internal set; }
+        public object Fiyatlar { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,6 +43,11 @@ namespace fitness.Models
             modelBuilder.Entity<Contact>()
                 .Property(e => e.Longitude)
                 .IsUnicode(false);
+
+
+            modelBuilder.Entity<Users>()
+               .Property(e => e.Fiyat)
+               .IsUnicode(false);
         }
     }
 }
