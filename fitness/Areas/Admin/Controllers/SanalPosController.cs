@@ -5,38 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 
-namespace fitness.Areas.Admin.Controllers
+namespace fitness.Controllers
 {
-    public class InvoiceController : Controller
+    public class SanalPosController : Controller
     {
-        public ActionResult Index()
-        {
-            InvoiceModel model = new InvoiceModel
-            {
-                BankName = "",
-                CardNumber = "",
-                ExpiryDate = "",
-                CVV = "",
-            };
-
-            return View(model);
-        }
-
-        // Your Pay method
-
-  
-
-        // Create InvoiceModel
-        public class InvoiceModel
-        {
-            public string BankName { get; set; }
-            public string CardNumber { get; set; }
-            public string ExpiryDate { get; set; }
-            public string CVV { get; set; }
-        }
+        // ...
 
         [HttpPost]
-        public ActionResult Pay(FormCollection form)
+        public ActionResult Payment()
         {
             // HTTP isteğinin post edilmiş olan farklı dosyaları (formdata) alın
 
@@ -71,26 +47,19 @@ namespace fitness.Areas.Admin.Controllers
 
             // Başarılı ise redirect sayfasına yönlendir
 
-            return Json(new { success = true });
+            return Json(true);
         }
 
         // Yönlendirme URL'leri
 
         public ActionResult PaymentSuccess()
         {
-            // You can pass a success message or any other data if required
-            string successMessage = "Ödeme işlemi başarıyla gerçekleşti!";
-            ViewBag.Message = successMessage;
             return View();
         }
 
         public ActionResult PaymentError()
         {
-            // You can pass an error message or any other data if required
-            string errorMessage = "Ödeme işlemi sırasında bir hata oluştu! Lütfen tekrar deneyiniz.";
-            ViewBag.Message = errorMessage;
             return View();
         }
-
     }
 }

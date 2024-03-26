@@ -132,11 +132,13 @@
     <Compile Include="Areas\Admin\Controllers\ContactMessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FitnessUserPricingViewModel.cs" />
     <Compile Include="Areas\Admin\Controllers\Fiyatlandirmadneme2Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\FiyatlarController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\KayıtController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainPageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SanalPosController.cs" />
     <Compile Include="Controllers\FitnessDbContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -146,7 +148,8 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Views\Home\Users.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1058,6 +1061,9 @@
     <Content Include="Areas\Admin\Views\FiyatlandırmaDENEME\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlandirmadneme2\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlar\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SanalPos\Payment.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoice\PaymentSuccess.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoice\PaymentError.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1110,6 +1116,7 @@
     <Content Include="Views\Home\Giris.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Kayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

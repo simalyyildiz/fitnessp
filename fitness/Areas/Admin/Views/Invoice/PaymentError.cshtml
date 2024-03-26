@@ -1,0 +1,16 @@
+﻿@*@{
+        ViewBag.Title = "PaymentError";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>PaymentError</h2>*@
+
+@{
+    ViewBag.Title = "Ödeme Başarılı";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ödeme Başarılı</h1>
+<p>Ödeme işlemi başarıyla gerçekleşmiştir. İşlem kodunuz: [İşlem Kodu]</p>
+
+<a href="@Url.Action("Index", "Invoice", new { area = "Admin" })" class="btn btn-primary">Anasayfaya Dön</a>

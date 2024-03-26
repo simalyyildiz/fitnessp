@@ -1,4 +1,12 @@
-﻿<div class="our_price_section layout_padding">
+﻿@model fitness.Models.Users
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="our_price_section layout_padding">
     <div class="container">
         <h1 class="our_price"><strong>Ücretlerimiz</strong></h1>
         <p class="client_long_text">Kendinize en uygun planı seçiniz </p>
@@ -6,21 +14,21 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-4">
                     <div class="beginner">
-                        <h2 class="beginner_text">BAŞLANGIÇ PLANI</h2>
-                        <h1 class="plan_text">3000₺</h1>
+                        <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Baslangic)</h2>
+                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.BaslangicFiyat)</h1>
                         <P class="access_text"> Spor salonuna erişim</P>
                         <P class="access_text"> Haftada 3 ders</P>
                         <P class="access_text">Bir yıllık üyelik</P>
                         <P class="access_text"> ÜCRETSİZ içecek paketi</P>
                         <P class="free_text"> 1 Ücretsiz kişisel antrenman</P>
                     </div>
-                   
+
                 </div>
                 <div class="col-sm-12 col-lg-4">
                     <div class="premium">
-                        <h2 class="beginner_text">PREMIUM PLAN</h2>
+                        <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Premium)</h2>
 
-                        <h1 class="plan_text">4500₺</h1>
+                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.PremiumFiyat)</h1>
                         <P class="access_text">Spor salonuna erişim</P>
                         <P class="access_text">
                             Haftada 5 kez grup dersi
@@ -37,12 +45,13 @@
                             1 Ücretsiz kişisel antrenman
                         </P>
                     </div>
-                   
+
                 </div>
                 <div class="col-sm-12 col-lg-4">
                     <div class="beginner">
-                        <h2 class="beginner_text">PROFOSYONEL PLAN</h2>
-                        <h1 class="plan_text">5200₺</h1>                        <P class="access_text">
+                        <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Profosyonel)</h2>
+                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.ProfosyonelFiyat)</h1>                        
+                        <P class="access_text">
                             24/7 spor salonu erişimi
                         </P>
                         <P class="access_text">  Sınırsız grup dersi    </P>
@@ -50,9 +59,9 @@
                         <P class="access_text">  Kişisel antrenmanlarda %20 indirim          </P>
                         <P class="free_text"> 1 Ücretsiz kişisel antrenman</P>
                     </div>
-                  
+
                 </div>
             </div> <br />  <br />
         </div>
-    </div> 
+    </div>
 </div>

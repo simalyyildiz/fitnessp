@@ -106,7 +106,7 @@
 @model fitness.Models.Users
 
 @{
-    ViewBag.Title = "User";
+    ViewBag.Title = "Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -139,21 +139,21 @@
                 <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
                     <input type="radio" id="premium" name="package" style="margin-right: 5px;">
                     <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.Baslangic)</label>
-                    <span style="color: #4caf50; margin-left: 10px;"> @Html.DisplayNameFor(model => model.BaslangicFiyat)</span>
+                    @*<span style="color: #4caf50; margin-left: 10px;"> @Html.DisplayNameFor(model => model.BaslangicFiyat)</span>*@
                 </div>
 
                 <!-- Special Paket -->
                 <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
                     <input type="radio" id="special" name="package" style="margin-right: 5px;">
                     <label for="special" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Premium)</label>
-                    <span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.PremiumFiyat)</span>
+                    @*<span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.PremiumFiyat)</span>*@
                 </div>
 
                 <!-- Free Paket -->
                 <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
                     <input type="radio" id="free" name="package" style="margin-right: 5px;">
                     <label for="free" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Profosyonel)</label>
-                    <span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.ProfosyonelFiyat)</span>
+                    @*<span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.ProfosyonelFiyat)</span>*@
                 </div>
             </div>
 
@@ -173,26 +173,6 @@
         <img style="margin-left:3rem; height:45rem;" src="~/Content/img/Home GYM&PLAYING Zone.jpeg" />
     </div>
 </div>
-
-<script>
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const formData = new FormData(event.target);
-
-  fetch('@Url.Action("Kaydet", "Users")', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-});
-</script>
 
 <!--<form id="kayitFormu">--> <!-- Buraya kayıt formunun alanlarını ekle --> <!--<button type="submit" style="background-color: #4caf50; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Kaydet</button> </form>
 <script>

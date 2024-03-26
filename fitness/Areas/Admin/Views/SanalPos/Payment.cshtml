@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Payment</h2>
+
+<div class="payment-container" style="font-family: 'Arial', sans-serif; display: flex; align-items: center; justify-content: center; height: 80vh; margin: 0; background-color: #f5f5f5;">
+    <div class="card" style="background-color:lightblue; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 400px;">
+        <label for="bank-name" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">Banka Adı:</label>
+        <input type="text" id="bank-name" placeholder="...Bank" style="width: 100%; padding: 10px; margin-bottom: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="card-number" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">Kart Numarası:</label>
+        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" style="width: 100%; padding: 10px; margin-bottom: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="expiry-date" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">Son Kullanma Tarihi:</label>
+        <input type="text" id="expiry-date" placeholder="MM/YY" style="width: 100%; padding: 10px; margin-bottom: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
+        <label for="cvv" style="display: block; margin-bottom: 8px; font-weight: bold; color: #333;">CVV:</label>
+        <input type="text" id="cvv" placeholder="123" style="width: 100%; padding: 10px; margin-bottom: 16px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
+        <button class="pay-button" id="payment-btn" style="background-color: #4caf50; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">Ödemeyi Tamamla</button>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            $('#payment-btn').click(() => {
+
+                let bankName = $('#bank-name').val();
+                let cardNumber = $('#card-number').val();
+                let expiryDate = $('#expiry-date').val();
+                let cvv = $('#cvv').val();
+
+                if (bankName && cardNumber && expiryDate && cvv) {
+                    const formData = new FormData();
+
+                    formData.append('BankName', bankName);
+                    formData.append('CardNumber', cardNumber);
+                    formData.append('ExpiryDate', expiryDate);
+                    formData.append('CVV', cvv);
+                                    // REST API'ye görüntülenebilir ödeme verilerini gönderme
+
+                $.ajax({
+                   ,
+                    type: 'POST',
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        // Ödeme başarılı ise bildirim sayfasına yönlendir
+                        window.location.href = '/Payment/PaymentSuccess';
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // Ödeme sırasında hata oluşursa, error kodunu konsola yazdır
+                        console.log(jqXHR.responseText);
+                    }
+                });
+            }
+        });
+        </script>
+    </div>
+</div>
+

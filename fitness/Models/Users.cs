@@ -8,7 +8,7 @@ namespace fitness.Models
 
     public partial class Users
     {
-        public int Ýd { get; set; }
+        public int id { get; set; }
 
         [StringLength(60)]
         public string FullName { get; set; }
@@ -39,8 +39,14 @@ namespace fitness.Models
 
         [StringLength(10)]
         public string Fiyat { get; set; }
-        public string ProfosyonelFiyat { get; internal set; }
-        public string BaslangicFiyat { get; internal set; }
-        public string PremiumFiyat { get; internal set; }
+
+        [StringLength(10)]
+        public string BaslangicFiyat { get; set; }
+
+        [StringLength(10)]
+        public string ProfosyonelFiyat { get; set; }
+
+        [StringLength(10)]
+        public string PremiumFiyat { get; set; }
     }
 }

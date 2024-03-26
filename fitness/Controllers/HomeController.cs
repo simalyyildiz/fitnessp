@@ -41,6 +41,8 @@ namespace fitness.Controllers
         //    Contact contacts = context.Contacts.FirstOrDefault();
         //    return View(contacts);
         //}
+           [HttpPost]
+
         public ActionResult Contact(string title, string email, string phone, string message)
         {
             Contact contact = new Contact
@@ -63,9 +65,20 @@ namespace fitness.Controllers
         {
             return View();
         }
-        public ActionResult Fiyat()
+        [HttpPost]
+
+        public ActionResult Fiyat(DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string premiumfiyat, string profosyonelfiyat)
         {
-            return View();
+            Users users = new Users()
+            {
+                Baslangic = baslangic,
+                Premium = premium,
+                Profosyonel = profosyonel,
+                BaslangicFiyat = baslangicfiyat,
+                PremiumFiyat = premiumfiyat,
+                ProfosyonelFiyat = profosyonelfiyat,
+            };
+            return View(users);
         }
         //[HttpPost]
         //public ActionResult User(string fullname, string email, string phone,string password, string paket)
@@ -93,16 +106,16 @@ namespace fitness.Controllers
         //    return View(users);
         //}
         [HttpPost]
-     public ActionResult Users(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat)
-{
-    if (baslangic == null || premium == null || profosyonel == null || baslangicfiyat == null || premiumfiyat == null || profosyonelfiyat == null)
-    {
-        // Eksik parametreler olduğunda hatayı işleyin
-        return View(); // Hata sayfasına yönlendirme yapabilirsiniz
-    }
+         public ActionResult Users(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat /*DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat*/)
+        {
+        //   if (baslangic == null || premium == null || profosyonel == null || baslangicfiyat == null || premiumfiyat == null || profosyonelfiyat == null)
+        // {
+        //// Eksik parametreler olduğunda hatayı işleyin
+        //    return View(); // Hata sayfasına yönlendirme yapabilirsiniz
+        // }
 
-    Users users = new Users()
-    {
+        Users users = new Users()
+       {
         FullName = fullname,
         Email = email,
         Phone = phone,
@@ -111,22 +124,20 @@ namespace fitness.Controllers
         Baslangic = baslangic.Value,
         Premium = premium.Value,
         Profosyonel = profosyonel.Value,
-        BaslangicFiyat = baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000",
-        PremiumFiyat = premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500", 
-        ProfosyonelFiyat = profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200"
-    };
-    context.Users.Add(users);
-    context.SaveChanges();
-    Users users1 = context.Users.FirstOrDefault();
-    return View(users1);
-}
+        BaslangicFiyat = baslangicfiyat,
+        PremiumFiyat = premiumfiyat,
+        ProfosyonelFiyat = profosyonelfiyat,
+        //BaslangicFiyat = baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000",
+        //PremiumFiyat = premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500", 
+        //ProfosyonelFiyat = profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200"
+       };
+      context.Users.Add(users);
+      context.SaveChanges();
+      Users users1 = context.Users.FirstOrDefault();
+      return View(users1);
+       }
 
-
-
-
-
-
-        public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, DateTime? baslangicfiyat, DateTime? premiumfiyat, DateTime? profosyonelfiyat)
+        public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
         {
             // Kodunuz buraya gelecek
  
@@ -143,9 +154,12 @@ namespace fitness.Controllers
                 Baslangic = baslangic,
                 Premium = premium,
                 Profosyonel = profosyonel,
-                BaslangicFiyat = baslangicfiyat.HasValue ? baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000" : null,
-                PremiumFiyat = premiumfiyat.HasValue ? premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500" : null,
-                ProfosyonelFiyat = profosyonelfiyat.HasValue ? profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200" : null
+                BaslangicFiyat = baslangicfiyat,
+                PremiumFiyat = premiumfiyat,
+                ProfosyonelFiyat = profosyonelfiyat,
+                //BaslangicFiyat = baslangicfiyat.HasValue ? baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000" : null,
+                //PremiumFiyat = premiumfiyat.HasValue ? premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500" : null,
+                //ProfosyonelFiyat = profosyonelfiyat.HasValue ? profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200" : null
 
             };
 
@@ -163,6 +177,30 @@ namespace fitness.Controllers
             return View(user);
         }
 
+        [HttpPost]
+
+        public ActionResult Kayit(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
+        {
+
+            Users users = new Users()
+            {
+                FullName = fullname,
+                Email = email,
+                Phone = phone,
+                Password = password,
+                Paket = paket,
+                Baslangic = baslangic,
+                Premium = premium,
+                Profosyonel = profosyonel,
+                BaslangicFiyat = baslangicfiyat,
+                PremiumFiyat = premiumfiyat,
+                ProfosyonelFiyat = profosyonelfiyat,
+            };
+            context.Users.Add(users);
+            context.SaveChanges();
+            Users users1 = context.Users.FirstOrDefault();
+            return View(users1);
+        }
     }
 }
 

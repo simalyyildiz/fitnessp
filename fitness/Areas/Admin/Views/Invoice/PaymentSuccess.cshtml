@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Ödeme Başarılı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ödeme Başarılı</h1>
+<p>@ViewBag.Message</p>
+
+<a href="@Url.Action("Index", "Invoice", new { area = "Admin" })" class="btn btn-primary">Anasayfaya Dön</a>
