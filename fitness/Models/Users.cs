@@ -8,6 +8,7 @@ namespace fitness.Models
 
     public partial class Users
     {
+        public static object[] Id { get; internal set; }
         public int id { get; set; }
 
         [StringLength(60)]

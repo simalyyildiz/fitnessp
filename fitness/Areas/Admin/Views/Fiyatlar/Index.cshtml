@@ -1,3 +1,101 @@
+﻿@*@using fitness.Models;
+
+@model List<Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>İndex</h2>
+
+
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+            <th>
+                Başlangıç
+            </th>
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td> @users.BaslangicFiyat  </td>
+
+                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Profosyonel
+            </th>
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td> @users.ProfosyonelFiyat  </td>
+
+                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Premium
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+
+                <td> @users.PremiumFiyat  </td>
+
+                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>*@
+
+
+
+
 ﻿@using fitness.Models;
 
 @model List<Users>
@@ -90,4 +188,5 @@
 
     </tbody>
 </table>
+
 

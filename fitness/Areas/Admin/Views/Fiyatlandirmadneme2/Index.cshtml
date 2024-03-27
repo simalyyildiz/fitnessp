@@ -1,9 +1,9 @@
-﻿@model IEnumerable<fitness.Models.Users>
-
+﻿@model fitness.Models.Users
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+<h2>İndex</h2>
 
 <table id="tbl1" class="table">
     <thead>
@@ -11,21 +11,8 @@
             <th>
                 Başlangıç
             </th>
-            <th>
-                Profosyonel
-            </th>
-            <th>
-                Premium
-            </th>
-            <th>
-                Premium Fiyat
-            </th>
-            <th>
-                Başlangıç Fiyat
-            </th>
-            <th>
-                Profosyonel Fiyat
-            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
             <th></th>
         </tr>
     </thead>
@@ -33,18 +20,56 @@
         @foreach (var users in Model)
         {
             <tr>
-                <td> @users.Baslangic  </td>
-                <td> @users.Profosyonel  </td>
-                <td> @users.Premium  </td>
-                <td> @users.BaslangicFiyat  </td>
-                <td> @users.ProfosyonelFiyat  </td>
-                <td> @users.PremiumFiyat  </td>
-                <td> <a href="/FIYAT/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYAT/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
-
+                <td> @users.BaslangicFiyat </td>
+                <td> @Html.ActionLink("Sil", "Sil", new { baslangicfiyat = users.baslangicfiyat }, new { @class = "btn btn-danger" }) </td>
+                <td> @Html.ActionLink("Güncelle", "Guncelle", new { baslangicfiyat = users.baslangicfiyat }, new { @class = "btn btn-success" }) </td>
             </tr>
         }
+    </tbody>
+</table>
 
+<table id="tbl2" class="table">
+    <thead>
+        <tr>
+            <th>
+                Profosyonel
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td> @users.ProfosyonelFiyat </td>
+                <td> @Html.ActionLink("Sil", "Sil", new { profosyonelfiyat = users.profosyonelfiyat }, new { @class = "btn btn-danger" }) </td>
+                <td> @Html.ActionLink("Güncelle", "Guncelle", new { premiumfiyat = users.premiumfiyat }, new { @class = "btn btn-success" }) </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
+<table id="tbl3" class="table">
+    <thead>
+        <tr>
+            <th>
+                Premium
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+                <td> @users.PremiumFiyat </td>
+                <td> @Html.ActionLink("Sil", "Sil", new { premiumfiyat = users.premiumfiyat }, new { @class = "btn btn-danger" }) </td>
+                <td> @Html.ActionLink("Güncelle", "Guncelle", new { premiumfiyat = users.premiumfiyat }, new { @class = "btn btn-success" }) </td>
+            </tr>
+        }
     </tbody>
 </table>
