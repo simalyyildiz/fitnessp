@@ -10,7 +10,7 @@ using fitness.Models;
 
 namespace fitness.Areas.Admin.Controllers
 {
-    [Authorize]
+
 
     public class FiyatlarController : Controller
     {
@@ -48,60 +48,83 @@ namespace fitness.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public ActionResult Guncelle(int? id)
+        //[HttpGet]
+        //public ActionResult Guncelle(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+
+        //    Users users = db.Users.Find(id);
+
+        //    if (users == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+
+        //    // Make sure to populate a ViewModel or your actual user properties
+        //    // to properly handle the editing of the data
+        //    Users usersViewModel = new Users
+        //    {
+
+        //        BaslangicFiyat = users.BaslangicFiyat,
+        //        PremiumFiyat = users.PremiumFiyat,
+        //        ProfosyonelFiyat = users.ProfosyonelFiyat
+        //    };
+
+        //    return View(usersViewModel);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Guncelle(Users updatedUsers)
+        //{
+        //    // Make sure to verify the model state
+        //    if (ModelState.IsValid)
+        //    {
+        //        // Load the existing user
+        //        Users existingUser = db.Users.Find(updatedUsers.BaslangicFiyat, updatedUsers.PremiumFiyat, updatedUsers.ProfosyonelFiyat);
+
+        //        // Update the user properties
+        //        existingUser.BaslangicFiyat = updatedUsers.BaslangicFiyat;
+        //        existingUser.PremiumFiyat = updatedUsers.PremiumFiyat;
+        //        existingUser.ProfosyonelFiyat = updatedUsers.ProfosyonelFiyat;
+
+        //        // Make sure to save the changes
+        //        db.SaveChanges();
+
+        //        // Pass information back to the user
+        //        TempData["EditSuccess"] = "User updated successfully!";
+
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(updatedUsers);
+        //}
+        // GET: Admin/Reservs/Create
+        public ActionResult Guncelle()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Users users = db.Users.Find(id);
-
-            if (users == null)
-            {
-                return HttpNotFound();
-            }
-
-            // Make sure to populate a ViewModel or your actual user properties
-            // to properly handle the editing of the data
-            Users usersViewModel = new Users
-            {
-
-                BaslangicFiyat = users.BaslangicFiyat,
-                PremiumFiyat = users.PremiumFiyat,
-                ProfosyonelFiyat = users.ProfosyonelFiyat
-            };
-
-            return View(usersViewModel);
+            return View();
         }
 
+        // POST: Admin/Reservs/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Guncelle(Users updatedUsers)
+        public ActionResult Guncelle([Bind(Include = "baslangic, profosyonel,premium,baslangicfiyat,premiumfiyat, profosyonelfiyat")] Users users)
         {
-            // Make sure to verify the model state
             if (ModelState.IsValid)
             {
-                // Load the existing user
-                Users existingUser = db.Users.Find(updatedUsers.BaslangicFiyat, updatedUsers.PremiumFiyat, updatedUsers.ProfosyonelFiyat);
-
-                // Update the user properties
-                existingUser.BaslangicFiyat = updatedUsers.BaslangicFiyat;
-                existingUser.PremiumFiyat = updatedUsers.PremiumFiyat;
-                existingUser.ProfosyonelFiyat = updatedUsers.ProfosyonelFiyat;
-
-                // Make sure to save the changes
+                db.Users.Add(users);
                 db.SaveChanges();
-
-                // Pass information back to the user
-                TempData["EditSuccess"] = "User updated successfully!";
-
                 return RedirectToAction("Index");
             }
 
-            return View(updatedUsers);
+            return View(users);
         }
+
     }
 }
 

@@ -41,31 +41,71 @@ namespace fitness.Controllers
         //    Contact contacts = context.Contacts.FirstOrDefault();
         //    return View(contacts);
         //}
-           [HttpPost]
+        //   [HttpPost]
 
-        public ActionResult Contact(string title, string email, string phone, string message)
+        //public ActionResult Contact(string title, string email, string phone, string message)
+        //{
+        //    Contact contact = new Contact
+        //    {
+        //        Title = title,
+        //        Email = email,
+        //        Phone = phone,
+        //        Description = message
+        //    };
+        //    context.Contacts.Add(contact);
+        //    context.SaveChanges();
+        //    Contact contacts = context.Contacts.FirstOrDefault();
+        //    return View("Contact", contacts);
+
+
+        //}
+        public ActionResult Contact()
         {
-            Contact contact = new Contact
-            {
-                Title = title,
-                Email = email,
-                Phone = phone,
-                Description = message
-            };
-            context.Contacts.Add(contact);
-            context.SaveChanges();
-            Contact contacts = context.Contacts.FirstOrDefault();
-            return View("Contact", contacts);
-
-
+            return View();
         }
 
+        // POST: /Home/Contact
+        [HttpPost]
+        public ActionResult Contact(Contact model)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Contacts.Add(model);
+                context.SaveChanges();
+                return RedirectToAction("ContactConfirmation");  
+            }
+
+             return View(model);
+        }
+
+         public ActionResult ContactConfirmation()
+        {
+            return View();
+        }
 
         public ActionResult Ekip()
         {
             return View();
         }
         [HttpPost]
+        public ActionResult Fiyat()
+        {
+           
+            var fiyatlar = context.Users.FirstOrDefault(); 
+
+            if (fiyatlar != null)
+            {
+                return View(fiyatlar);
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Fiyat bilgisi bulunamadı.";
+                return View();
+            }
+        }
+
+
+
 
         public ActionResult Fiyat(DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string premiumfiyat, string profosyonelfiyat)
         {
@@ -137,13 +177,101 @@ namespace fitness.Controllers
       return View(users1);
        }
 
+        //    public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
+        //    {
+        //        // Kodunuz buraya gelecek
+
+
+        //        // Veritabanından kullanıcıları alın
+        //        Users users = new Users()
+        //        {
+        //            FullName = fullname,
+        //            Email = email,
+        //            Phone = phone,
+        //            Password = password,
+        //            Paket = paket,
+        //            QRCode = qrcode,
+        //            Baslangic = baslangic,
+        //            Premium = premium,
+        //            Profosyonel = profosyonel,
+        //            BaslangicFiyat = baslangicfiyat,
+        //            PremiumFiyat = premiumfiyat,
+        //            ProfosyonelFiyat = profosyonelfiyat,
+        //            //BaslangicFiyat = baslangicfiyat.HasValue ? baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000" : null,
+        //            //PremiumFiyat = premiumfiyat.HasValue ? premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500" : null,
+        //            //ProfosyonelFiyat = profosyonelfiyat.HasValue ? profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200" : null
+
+        //        };
+
+        //        return View(users); // Kullanıcıları görünüme gönderin
+        //    }
+        //    public ActionResult Giris()
+        //    {
+        //        var user = new Users
+        //        {
+        //            FullName = "John Doe",
+        //            Paket = "Gold", 
+        //            QRCode = "123456" 
+        //        };
+
+        //        return View(user);
+        //    }
+
+        //    [HttpPost]
+
+        //    public ActionResult Kayit(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
+        //    {
+
+        //        Users users = new Users()
+        //        {
+        //            FullName = fullname,
+        //            Email = email,
+        //            Phone = phone,
+        //            Password = password,
+        //            Paket = paket,
+        //            Baslangic = baslangic,
+        //            Premium = premium,
+        //            Profosyonel = profosyonel,
+        //            BaslangicFiyat = baslangicfiyat,
+        //            PremiumFiyat = premiumfiyat,
+        //            ProfosyonelFiyat = profosyonelfiyat,
+        //        };
+        //        context.Users.Add(users);
+        //        context.SaveChanges();
+        //        Users users1 = context.Users.FirstOrDefault();
+        //        return View(users1);
+        //    }
+
+
+        // GET: /User/Kullanici
+        [HttpPost]
+        public ActionResult Kullanici(string fullname, string email, string phone)
+        {
+            var user = context.Users.FirstOrDefault(u => u.FullName == fullname && u.Email == email && u.Phone == phone);
+
+            if (user != null)
+            {
+                return RedirectToAction("Giris", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Girilen bilgilere sahip bir kullanıcı bulunamadı.");
+                return View();
+            }
+        }
+
+
+
+        public ActionResult Kullanici()
+        {
+            return View();
+        }
+
+        // POST: /User/Kullanici
+        [HttpPost]
         public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
         {
-            // Kodunuz buraya gelecek
- 
-
-            // Veritabanından kullanıcıları alın
-            Users users = new Users()
+            Users user = new Users()
             {
                 FullName = fullname,
                 Email = email,
@@ -156,33 +284,40 @@ namespace fitness.Controllers
                 Profosyonel = profosyonel,
                 BaslangicFiyat = baslangicfiyat,
                 PremiumFiyat = premiumfiyat,
-                ProfosyonelFiyat = profosyonelfiyat,
-                //BaslangicFiyat = baslangicfiyat.HasValue ? baslangicfiyat.Value.ToString("yyyy-MM-dd") + " 3000" : null,
-                //PremiumFiyat = premiumfiyat.HasValue ? premiumfiyat.Value.ToString("yyyy-MM-dd") + " 4500" : null,
-                //ProfosyonelFiyat = profosyonelfiyat.HasValue ? profosyonelfiyat.Value.ToString("yyyy-MM-dd") + " 5200" : null
-
+                ProfosyonelFiyat = profosyonelfiyat
             };
 
-            return View(users); // Kullanıcıları görünüme gönderin
+            context.Users.Add(user);
+            context.SaveChanges();
+
+
+            return View(user);
         }
+
+        // GET: /User/Giris
         public ActionResult Giris()
         {
-            var user = new Users
+             Users user = new Users
             {
                 FullName = "John Doe",
-                Paket = "Gold", 
-                QRCode = "123456" 
+                Paket = "Gold",
+                QRCode = "123456"
             };
 
             return View(user);
         }
 
-        [HttpPost]
 
+        public ActionResult Kayit()
+        {
+             return View();
+        }
+
+        // POST: /User/Kayit
+        [HttpPost]
         public ActionResult Kayit(string fullname, string email, string phone, string password, string paket, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
         {
-
-            Users users = new Users()
+             Users user = new Users()
             {
                 FullName = fullname,
                 Email = email,
@@ -194,12 +329,13 @@ namespace fitness.Controllers
                 Profosyonel = profosyonel,
                 BaslangicFiyat = baslangicfiyat,
                 PremiumFiyat = premiumfiyat,
-                ProfosyonelFiyat = profosyonelfiyat,
+                ProfosyonelFiyat = profosyonelfiyat
             };
-            context.Users.Add(users);
+
+             context.Users.Add(user);
             context.SaveChanges();
-            Users users1 = context.Users.FirstOrDefault();
-            return View(users1);
+
+             return View(user);
         }
     }
 }
