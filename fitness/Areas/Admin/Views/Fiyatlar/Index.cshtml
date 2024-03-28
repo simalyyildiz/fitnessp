@@ -122,12 +122,11 @@
         {
             <tr>
                 <td> @users.BaslangicFiyat  </td>
-         
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
-
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
+
 
 
     </tbody>
@@ -148,13 +147,13 @@
     <tbody>
         @foreach (var users in Model)
         {
-            <tr>
-                <td> @users.ProfosyonelFiyat  </td>
+        <tr>
+            <td> @users.ProfosyonelFiyat  </td>
 
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+            <td> <a href="@Url.Action("Sil", "Fiyatlar", new { ProfosyonelFiyat = users.ProfosyonelFiyat })" class="btn btn-danger">Sil</a></td>
+            <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-success">Güncelle</a></td>
 
-            </tr>
+        </tr>
         }
 
 
@@ -175,14 +174,14 @@
     <tbody>
         @foreach (var users in Model)
         {
-            <tr>
-               
-                <td> @users.PremiumFiyat  </td>
+        <tr>
 
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a @Url.Action("Guncelle" , "Fiyatlar") class="btn btn-success"></a> Güncelle</td>
+            <td> @users.PremiumFiyat  </td>
 
-            </tr>
+            <td> <a href="@Url.Action("Sil", "Fiyatlar", new { PremiumFiyat = users.PremiumFiyat })" class="btn btn-danger">Sil</a></td>
+            <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { PremiumFiyat = users.PremiumFiyat })" class="btn btn-success">Güncelle</a></td>
+
+        </tr>
         }
 
 
