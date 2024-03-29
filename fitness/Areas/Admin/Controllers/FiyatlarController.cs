@@ -125,7 +125,28 @@ namespace fitness.Areas.Admin.Controllers
 
             return View(users);
         }
-        // GET: Admin/Userss/Sil/5
+
+
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            Users users = db.Users.Find(id);
+            if (users == null)
+            {
+                return HttpNotFound();
+            }
+
+            db.Users.Remove(users);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Sil()
+        {
+            return View();
+        }
+     
         public ActionResult Sil(int? id)
         {
             if (id == null)
@@ -150,28 +171,28 @@ namespace fitness.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        //public ActionResult Sil(int? id)
+        //public actionresult sil(int? id)
         //{
         //    if (id == null)
         //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        return new httpstatuscoderesult(httpstatuscode.badrequest);
         //    }
-        //    Users users = db.Users.Find(id);
+        //    users users = db.users.find(id);
         //    if (users == null)
         //    {
-        //        return HttpNotFound();
+        //        return httpnotfound();
         //    }
-        //    return View(users);
+        //    return view(users);
         //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Sil(int id)
+        //[httppost]
+        //[validateantiforgerytoken]
+        //public actionresult sil(int id)
         //{
-        //    Users users = db.Users.Find(id);
-        //    db.Users.Remove(users);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
+        //    users users = db.users.find(id);
+        //    db.users.remove(users);
+        //    db.savechanges();
+        //    return redirecttoaction("ındex");
         //}
 
     }
@@ -179,30 +200,6 @@ namespace fitness.Areas.Admin.Controllers
 
 
 
-
-//using System;
-//using System.Collections.Generic;
-//using System.Data;
-//using System.Data.Entity;
-//using System.Linq;
-//using System.Net;
-//using System.Web;
-//using System.Web.Mvc;
-//using fitness.Models;
-//namespace fitness.Areas.Admin.Controllers
-//{
-//    [Authorize]
-
-//    public class FiyatlarController : Controller
-//    {
-//        private AcademyContext db = new AcademyContext();        // GET: Admin/Fiyatlar
-//        public ActionResult Index()
-//        {
-
-//            var model = db.Users.ToList();
-
-//            return View(model);
-//        }
 //        public ActionResult Sil(int? id)
 //        {
 //            if (id == null)
