@@ -49,5 +49,11 @@ namespace fitness.Models
 
         [StringLength(10)]
         public string PremiumFiyat { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? DogumTarihi { get; set; }
+
+        [StringLength(100)]
+        public string Adres { get; set; }
     }
 }

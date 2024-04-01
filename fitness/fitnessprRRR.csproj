@@ -135,20 +135,33 @@
     <Compile Include="Areas\Admin\Controllers\FitnessUserPricingViewModel.cs" />
     <Compile Include="Areas\Admin\Controllers\Fiyatlandirmadneme2Controller.cs" />
     <Compile Include="Areas\Admin\Controllers\FiyatlarController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HocalarController.cs" />
     <Compile Include="Areas\Admin\Controllers\InvoiceController.cs" />
     <Compile Include="Areas\Admin\Controllers\KayıtController.cs" />
     <Compile Include="Areas\Admin\Controllers\MainPageController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanalPosController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UyelerController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\EkipController.cs" />
     <Compile Include="Controllers\FitnessDbContext.cs" />
+    <Compile Include="Controllers\FiyatController.cs" />
+    <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KayitController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AcademyContext.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactMessage.cs" />
+    <Compile Include="Models\Hocalar.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Hoca.cs" />
+    <Compile Include="Models\Model2.cs" />
+    <Compile Include="Models\Model3.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1066,6 +1079,8 @@
     <Content Include="Areas\Admin\Views\Invoice\PaymentError.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlar\Sil.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlar\Guncelle.cshtml" />
+    <Content Include="Areas\Admin\Views\Uyeler\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Hocalar\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1109,7 +1124,6 @@
     <Content Include="Views\Shared\_Script.cshtml" />
     <Content Include="Views\Shared\_Head.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\ContactMessage.cshtml" />
     <Content Include="Views\Home\Ekip.cshtml" />
     <Content Include="Views\Home\Fiyat.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -1119,12 +1133,19 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\Kayit.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
+    <Content Include="Views\About\About.cshtml" />
+    <Content Include="Views\Ekip\Ekip.cshtml" />
+    <Content Include="Views\Fiyat\Fiyat.cshtml" />
+    <Content Include="Views\Giris\Giris.cshtml" />
+    <Content Include="Views\Kayit\Kayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Data\" />
+    <Folder Include="Views\Kullanici\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -17,6 +17,8 @@ namespace fitness.Models
         public virtual DbSet<Users> Users { get; set; }
         public object Payments { get; internal set; }
         public object Fiyatlar { get; internal set; }
+        public object Hocalar { get; internal set; }
+        public object Hoca { get; internal set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -1,0 +1,30 @@
+﻿@model fitness.Models.Hocalar
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <div class="page-content">
+        <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">@Html.DisplayNameFor(model => model.FullName)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-4 col-xl-4">
+                <div class="card">
+                    <i style="font-size: 4rem; margin-left:8rem; margin-top:2rem; margin-bottom:1rem;" class="lni lni-user"></i>
+
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayNameFor(model => model.FullName)</h5>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Phone)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Email)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.DogumTarihi)</p>
+
+                    </div>
+                  
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
