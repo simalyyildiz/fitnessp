@@ -1,97 +1,97 @@
 ﻿@*@using fitness.Models;
 
-@model List<Users>
+    @model List<Users>
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-<h2>İndex</h2>
+    <h2>İndex</h2>
 
 
-<table id="tbl1" class="table">
-    <thead>
-        <tr>
-            <th>
-                Başlangıç
-            </th>
-
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var users in Model)
-        {
+    <table id="tbl1" class="table">
+        <thead>
             <tr>
-                <td> @users.BaslangicFiyat  </td>
+                <th>
+                    Başlangıç
+                </th>
 
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
-
+                <th>Sil</th>
+                <th>Güncelle</th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var users in Model)
+            {
+                <tr>
+                    <td> @users.BaslangicFiyat  </td>
+
+                    <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                    <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+                </tr>
+            }
 
 
-    </tbody>
-</table>
-<table id="tbl1" class="table">
-    <thead>
-        <tr>
-
-            <th>
-                Profosyonel
-            </th>
-
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var users in Model)
-        {
-            <tr>
-                <td> @users.ProfosyonelFiyat  </td>
-
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
-
-            </tr>
-        }
-
-
-    </tbody>
-</table>
-<table id="tbl1" class="table">
-    <thead>
-        <tr>
-
-            <th>
-                Premium
-            </th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var users in Model)
-        {
+        </tbody>
+    </table>
+    <table id="tbl1" class="table">
+        <thead>
             <tr>
 
-                <td> @users.PremiumFiyat  </td>
+                <th>
+                    Profosyonel
+                </th>
 
-                <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
-                <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
-
+                <th>Sil</th>
+                <th>Güncelle</th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var users in Model)
+            {
+                <tr>
+                    <td> @users.ProfosyonelFiyat  </td>
+
+                    <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                    <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+                </tr>
+            }
 
 
-    </tbody>
-</table>*@
+        </tbody>
+    </table>
+    <table id="tbl1" class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Premium
+                </th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var users in Model)
+            {
+                <tr>
+
+                    <td> @users.PremiumFiyat  </td>
+
+                    <td> <a href="/FIYATLAR/SIL" class="btn btn-danger"></a> Sil</td>
+                    <td> <a href="/FIYATLAR/GUNCELLE" class="btn btn-success"></a> Güncelle</td>
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>*@
 
 
 
@@ -111,34 +111,7 @@
             <th>
                 Başlangıç
             </th>
-           
-            <th>Sil</th>
-            <th>Güncelle</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var users in Model)
-        {
-            <tr>
-                <td> @users.BaslangicFiyat  </td>
-                <td> <a href="@Url.Action("Sil", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-danger">Sil</a></td>
-                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-success">Güncelle</a></td>
-            </tr>
-        }
 
-
-
-    </tbody>
-</table>
-<table id="tbl1" class="table">
-    <thead>
-        <tr>
-           
-            <th>
-                Profosyonel
-            </th>
-           
             <th>Sil</th>
             <th>Güncelle</th>
             <th></th>
@@ -148,21 +121,21 @@
         @foreach (var users in Model)
         {
         <tr>
-            <td> @users.ProfosyonelFiyat  </td>
-
-            <td> <a href="@Url.Action("Sil", "Fiyatlar", new { ProfosyonelFiyat = users.ProfosyonelFiyat })" class="btn btn-danger">Sil</a></td>
+            <td> @users.BaslangicFiyat  </td>
+            <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=1 })" class="btn btn-danger">Sil</a></td>
             <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { baslangicfiyat = users.BaslangicFiyat })" class="btn btn-success">Güncelle</a></td>
-
         </tr>
         }
 
 
+
     </tbody>
 </table>
+
 <table id="tbl1" class="table">
     <thead>
         <tr>
-          
+
             <th>
                 Premium
             </th>
@@ -174,14 +147,155 @@
     <tbody>
         @foreach (var users in Model)
         {
+            <tr>
+
+                <td> @users.PremiumFiyat  </td>
+
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=2 })" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { PremiumFiyat = users.PremiumFiyat })" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
         <tr>
 
-            <td> @users.PremiumFiyat  </td>
+            <th>
+                Premium
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
 
-            <td> <a href="@Url.Action("Sil", "Fiyatlar", new { PremiumFiyat = users.PremiumFiyat })" class="btn btn-danger">Sil</a></td>
-            <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { PremiumFiyat = users.PremiumFiyat })" class="btn btn-success">Güncelle</a></td>
+                <td> @users.ProfosyonelFiyat  </td>
+
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=3 })" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { ProfosyonelFiyat = users.ProfosyonelFiyat })" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Bir Aylık
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+        <tr>
+
+            <td> @users.BirAylıkFiyat  </td>
+
+            <td> <a href="@Url.Action("Sil", "Fiyatlar", new {   id = users.id ,type=4  })" class="btn btn-danger">Sil</a></td>
+            <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { BirAylıkFiyat = users.BirAylıkFiyat })" class="btn btn-success">Güncelle</a></td>
 
         </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Üç Aylık
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+
+                <td> @users.ÜçAylıkFiyat  </td>
+
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=5 })" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { ÜçAylıkFiyat = users.ÜçAylıkFiyat })" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Altı Aylık
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+
+                <td> @users.AltıAylıkFiyat  </td>
+
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=6 })" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { AltıAylıkFiyat = users.AltıAylıkFiyat })" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<table id="tbl1" class="table">
+    <thead>
+        <tr>
+
+            <th>
+                On İki Aylık
+            </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var users in Model)
+        {
+            <tr>
+
+                <td> @users.OnİkiAylıkFiyat  </td>
+
+                <td> <a href="@Url.Action("Sil", "Fiyatlar", new {  id = users.id ,type=7})" class="btn btn-danger">Sil</a></td>
+                <td> <a href="@Url.Action("Guncelle", "Fiyatlar", new { OnİkiAylıkFiyat = users.OnİkiAylıkFiyat })" class="btn btn-success">Güncelle</a></td>
+
+            </tr>
         }
 
 

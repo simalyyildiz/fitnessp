@@ -41,13 +41,13 @@ namespace fitness.Models
         [StringLength(10)]
         public string Fiyat { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string BaslangicFiyat { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string ProfosyonelFiyat { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string PremiumFiyat { get; set; }
 
         [Column(TypeName = "date")]
@@ -55,5 +55,29 @@ namespace fitness.Models
 
         [StringLength(100)]
         public string Adres { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? BirAylık { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? ÜçAylık { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? AltıAylık { get; set; }
+
+        [Column("Onİki Aylık", TypeName = "date")]
+        public DateTime? Onİki_Aylık { get; set; }
+
+        [StringLength(50)]
+        public string BirAylıkFiyat { get; set; }
+
+        [StringLength(50)]
+        public string ÜçAylıkFiyat { get; set; }
+
+        [StringLength(50)]
+        public string AltıAylıkFiyat { get; set; }
+
+        [StringLength(50)]
+        public string OnİkiAylıkFiyat { get; set; }
     }
 }

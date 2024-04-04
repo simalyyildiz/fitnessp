@@ -13,6 +13,7 @@ namespace fitness.Controllers
         //private  FitnessDbContext context = new FitnessDbContext();
         //private object context;
         AcademyContext context = new AcademyContext();
+        private AcademyContext db = new AcademyContext();
 
         // GET: Home
         public ActionResult Index()
@@ -244,64 +245,91 @@ namespace fitness.Controllers
 
 
         // GET: /User/Kullanici
-        [HttpPost]
-        public ActionResult Kullanici(string fullname, string email, string phone)
-        {
-            var user = context.Users.FirstOrDefault(u => u.FullName == fullname && u.Email == email && u.Phone == phone);
+        //[HttpPost]
+        //public ActionResult Kullanici(string fullname, string email, string phone)
+        //{
+        //    var user = context.Users.FirstOrDefault(u => u.FullName == fullname && u.Email == email && u.Phone == phone);
 
-            if (user != null)
-            {
-                return RedirectToAction("Giris", "Home");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Girilen bilgilere sahip bir kullanıcı bulunamadı.");
-                return View();
-            }
-        }
+        //    if (user != null)
+        //    {
+        //        return RedirectToAction("Giris", "Home");
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("", "Girilen bilgilere sahip bir kullanıcı bulunamadı.");
+        //        return View();
+        //    }
+        //}
 
 
 
         public ActionResult Kullanici()
         {
+            Session.Clear();
+            return RedirectToAction("Giris" , "Home");
+        }
+
+
+        [HttpGet]
+        public ActionResult Kullanicii()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Kullanici( Users users)
+        {
+            var checkLogin = db.Users.Where(x => x.FullName.Equals(users.FullName) && x.Password.Equals(users.Password)).FirstOrDefault();
+        if (checkLogin != null)
+            {
+                Session["FullName"] = users.FullName.ToString();
+                Session["Password"] = users.Password.ToString();
+                return RedirectToAction("Giris ", "Home");
+            }
+        else
+            {
+                ViewBag.Notification = "Kullanıcı Bilgileri Hatalı";
+            }
             return View();
         }
 
         // POST: /User/Kullanici
-        [HttpPost]
-        public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
-        {
-            Users user = new Users()
-            {
-                FullName = fullname,
-                Email = email,
-                Phone = phone,
-                Password = password,
-                Paket = paket,
-                QRCode = qrcode,
-                Baslangic = baslangic,
-                Premium = premium,
-                Profosyonel = profosyonel,
-                BaslangicFiyat = baslangicfiyat,
-                PremiumFiyat = premiumfiyat,
-                ProfosyonelFiyat = profosyonelfiyat
-            };
+        //[HttpPost]
+        //public ActionResult Kullanici(string fullname, string email, string phone, string password, string paket, string qrcode, DateTime? baslangic, DateTime? profosyonel, DateTime? premium, string baslangicfiyat, string profosyonelfiyat, string premiumfiyat)
+        //{
+        //    Users user = new Users()
+        //    {
+        //        FullName = fullname,
+        //        Email = email,
+        //        Phone = phone,
+        //        Password = password,
+        //        Paket = paket,
+        //        QRCode = qrcode,
+        //        Baslangic = baslangic,
+        //        Premium = premium,
+        //        Profosyonel = profosyonel,
+        //        BaslangicFiyat = baslangicfiyat,
+        //        PremiumFiyat = premiumfiyat,
+        //        ProfosyonelFiyat = profosyonelfiyat
+        //    };
 
-            context.Users.Add(user);
-            context.SaveChanges();
+        //    context.Users.Add(user);
+        //    context.SaveChanges();
+        //    Users users = context.Users.FirstOrDefault();
 
-
-            return View(user);
-        }
+        //    return RedirectToAction("Giris", "Home");
+        //}
 
         // GET: /User/Giris
         public ActionResult Giris()
         {
              Users user = new Users
             {
-                FullName = "John Doe",
-                Paket = "Gold",
-                QRCode = "123456"
+                FullName = " ",
+                Paket = "",
+                QRCode = ""
             };
 
             return View(user);

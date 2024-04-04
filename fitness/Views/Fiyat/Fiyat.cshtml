@@ -1,35 +1,36 @@
-﻿@model fitness.Models.Users
+﻿@model IEnumerable<fitness.Models.Users>
 
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "Fiyatlar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<div class="our_price_section layout_padding">
+<div class="our_price_section layout_padding" style="margin-bottom:1rem;">
     <div class="container">
         <h1 class="our_price"><strong>Ücretlerimiz</strong></h1>
         <p class="client_long_text">Kendinize en uygun planı seçiniz </p>
         <div class="price_section_2">
-            <div class="row">
+            <div class="row" style="border-bottom:1rem;">
                 <div class="col-sm-12 col-lg-4">
                     <div class="beginner">
                         <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Baslangic)</h2>
-                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.BaslangicFiyat)</h1>
-                        <P class="access_text"> Spor salonuna erişim</P>
-                        <P class="access_text"> Haftada 3 ders</P>
-                        <P class="access_text">Bir yıllık üyelik</P>
-                        <P class="access_text"> ÜCRETSİZ içecek paketi</P>
-                        <P class="free_text"> 1 Ücretsiz kişisel antrenman</P>
+                        @foreach (var user in Model)
+                        {
+                            <h1 class="plan_text">@user.BaslangicFiyat </h1>
+                        }                        <p class="access_text">Spor salonuna erişim</p>
+                        <p class="access_text">Haftada 3 ders</p>
+                        <p class="access_text">Bir yıllık üyelik</p>
+                        <p class="access_text">ÜCRETSİZ içecek paketi</p>
+                        <p class="free_text">1 Ücretsiz kişisel antrenman</p>
                     </div>
-
                 </div>
                 <div class="col-sm-12 col-lg-4">
-                    <div class="premium">
+                    <div class="beginner">
                         <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Premium)</h2>
-
-                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.PremiumFiyat)</h1>
-                        <P class="access_text">Spor salonuna erişim</P>
+                        @foreach (var user in Model)
+                        {
+                            <h1 class="plan_text">@user.PremiumFiyat </h1>
+                        }                                  <P class="access_text">Spor salonuna erişim</P>
                         <P class="access_text">
                             Haftada 5 kez grup dersi
                         </P>
@@ -45,64 +46,71 @@
                             1 Ücretsiz kişisel antrenman
                         </P>
                     </div>
-
-                </div>
-                <div class="col-sm-12 col-lg-4">
-                    <div class="beginner">
-                        <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Profosyonel)</h2>
-                        <h1 class="plan_text"> @Html.DisplayNameFor(model => model.ProfosyonelFiyat)</h1>
-                        <P class="access_text">
-                            24/7 spor salonu erişimi
-                        </P>
-                        <P class="access_text">  Sınırsız grup dersi    </P>
-                        <P class="access_text">  Haftada 2 ücretsiz kişisel antrenman  </P>
-                        <P class="access_text">  Kişisel antrenmanlarda %20 indirim          </P>
-                        <P class="free_text"> 1 Ücretsiz kişisel antrenman</P>
                     </div>
-
-                </div>
-            </div> <br />  <br />
+                    <div class="col-sm-12 col-lg-4">
+                        <div class="beginner">
+                            <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Profosyonel)</h2>
+                            @foreach (var user in Model)
+                            {
+                                <h1 class="plan_text">@user.ProfosyonelFiyat </h1>
+                            }                                  <P class="access_text">
+                                24/7 spor salonu erişimi
+                            </P>
+                            <P class="access_text">  Sınırsız grup dersi    </P>
+                            <P class="access_text">  Haftada 2 ücretsiz kişisel antrenman  </P>
+                            <P class="access_text">  Kişisel antrenmanlarda %20 indirim          </P>
+                            <P class="free_text"> 1 Ücretsiz kişisel antrenman</P>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
 </div>
 
 
-
-<!--
-{
-    <div class="our_price_section layout_padding">
+<div class="our_price_section layout_padding" style="margin-bottom:1rem;">
         <div class="container">
-            <h1 class="our_price"><strong>Ücretlerimiz</strong></h1>
             <p class="client_long_text">Kendinize en uygun planı seçiniz </p>
             <div class="price_section_2">
-                <div class="row">
-                    <div class="col-sm-12 col-lg-4">
+                <div class="row" style="border-bottom:1rem;">
+                    <div class="col-sm-12 col-lg-3">
                         <div class="beginner">
-                            <h2 class="beginner_text">Baslangic</h2>
-                            <h1 class="plan_text">@Model.BaslangicFiyat</h1>-->
-<!-- Diğer fiyat bilgileri -->
-<!--</div>
-</div>
-<div class="col-sm-12 col-lg-4">
-    <div class="premium">
-        <h2 class="beginner_text">Premium</h2>
-        <h1 class="plan_text">@Model.PremiumFiyat</h1>-->
-<!-- Diğer fiyat bilgileri -->
-<!--</div>
-</div>
-<div class="col-sm-12 col-lg-4">
-    <div class="beginner">
-        <h2 class="beginner_text">Profosyonel</h2>
-        <h1 class="plan_text">@Model.ProfosyonelFiyat</h1>-->
-<!-- Diğer fiyat bilgileri -->
-<!--</div>
+                            <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.BirAylık)</h2>
+                            @foreach (var user in Model)
+                            {
+                                <h1 class="plan_text">@user.BirAylıkFiyat </h1>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-3">
+                        <div class="beginner">
+                            <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.ÜçAylık)</h2>
+                            @foreach (var user in Model)
+                            {
+                                <h1 class="plan_text">@user.ÜçAylıkFiyat </h1>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-lg-3">
+                        <div class="beginner">
+                            <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.AltıAylık)</h2>
+                            @foreach (var user in Model)
+                            {
+                                <h1 class="plan_text">@user.AltıAylıkFiyat </h1>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-3">
+                        <div class="beginner">
+                            <h2 class="beginner_text"> @Html.DisplayNameFor(model => model.Onİki_Aylık)</h2>
+                            @foreach (var user in Model)
+                            {
+                                <h1 class="plan_text">@user.OnİkiAylıkFiyat </h1>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-}
-else
-{
-    <p>@ViewBag.ErrorMessage</p>
-}-->

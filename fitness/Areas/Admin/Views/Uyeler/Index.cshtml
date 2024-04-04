@@ -1,6 +1,5 @@
 ﻿@model List<fitness.Models.Users>
 
-<h2>Zaman</h2>
 
 @foreach (var user in Model)
 {
@@ -24,12 +23,14 @@
                         <li class="list-group-item">@(user.Baslangic.HasValue ? user.Baslangic.Value.ToShortTimeString() : "-")</li>
                         <li class="list-group-item">@(user.Profosyonel.HasValue ? user.Profosyonel.Value.ToShortTimeString() : "-")</li>
                         <li class="list-group-item">@(user.Premium.HasValue ? user.Premium.Value.ToShortTimeString() : "-")</li>
+                        <li class="list-group-item">@(user.BirAylık.HasValue ? user.BirAylık.Value.ToShortTimeString() : "-")</li>
+                        <li class="list-group-item">@(user.ÜçAylık.HasValue ? user.ÜçAylık.Value.ToShortTimeString() : "-")</li>
+                        <li class="list-group-item">@(user.AltıAylık.HasValue ? user.AltıAylık.Value.ToShortTimeString() : "-")</li>
+                        <li class="list-group-item">@(user.Onİki_Aylık.HasValue ? user.Onİki_Aylık.Value.ToShortTimeString() : "-")</li>
+                   
                     </ul>
 
-                    <div class="card-body">
-                        <a href="javascript:;" class="card-link">Card link</a>
-                        <a href="javascript:;" class="card-link">Another link</a>
-                    </div>
+            
                 </div>
             </div>
         </div>

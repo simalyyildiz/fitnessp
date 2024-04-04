@@ -1,4 +1,4 @@
-﻿@model fitness.Models.Users
+﻿@model IEnumerable<fitness.Models.Users>
 
 @{
     ViewBag.Title = "Kayit";
@@ -45,11 +45,33 @@
                 </div>
 
                 <!-- Free Paket -->
-                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom:10px;">
                     <input type="radio" id="free" name="package" style="margin-right: 5px;">
                     <label for="free" style="margin-bottom: 0;"> @Html.DisplayNameFor(model => model.Profosyonel)</label>
                     <span style="color: #4caf50; margin-left: 10px;">@Html.DisplayNameFor(model => model.ProfosyonelFiyat)</span>
                 </div>
+
+                @*<div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+                    <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.BirAylıkFiyat)</label>
+                    <span style="color: #4caf50; margin-left: 10px;">700₺</span>
+                </div>
+
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+                    <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.ÜçAylıkFiyat)</label>
+                    <span style="color: #4caf50; margin-left: 10px;">1000₺</span>
+                </div>*@
+
+                <div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+                 
+                </div>
+                @*<div style="background-color: #fff; padding: 10px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px;">
+                    <input type="radio" id="premium" name="package" style="margin-right: 5px;">
+                    <label for="premium" style="margin-bottom: 0;">  @Html.DisplayNameFor(model => model.OnİkiAylıkFiyat)</label>
+                    <span style="color: #4caf50; margin-left: 10px;">2000₺</span>
+                </div>*@
             </div>
 
 

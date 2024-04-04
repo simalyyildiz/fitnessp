@@ -17,11 +17,13 @@ namespace fitness.Areas.Admin.Controllers
 
         // GET: Admin/Uyeler
         // GET: Admin/Uyeler
+        // GET: Admin/Uyeler
         public ActionResult Index()
         {
-            Users user = db.Users.FirstOrDefault();
-            return View(user);
+            List<Users> users = db.Users.ToList();
+            return View(users);
         }
+   
         // GET: Admin/Contacts/Details/5
 
         // GET: Admin/Contacts/Edit/5
@@ -54,6 +56,10 @@ namespace fitness.Areas.Admin.Controllers
                 editUsers.Baslangic = users.Baslangic;
                 editUsers.Profosyonel = users.Profosyonel;
                 editUsers.Premium = users.Premium;
+                editUsers.BirAylık = users.BirAylık;
+                editUsers.ÜçAylık = users.ÜçAylık;
+                editUsers.AltıAylık = users.AltıAylık;
+                editUsers.Onİki_Aylık = users.Onİki_Aylık;
 
                 db.SaveChanges();
                 return RedirectToAction("index");
@@ -65,8 +71,8 @@ namespace fitness.Areas.Admin.Controllers
         {
             var user = new List<Users>
     {
-        new Users { FullName = "A", Baslangic = DateTime.Parse("2023-01-01"), Profosyonel = DateTime.Parse("2023-01-02"), Premium = DateTime.Parse("2023-01-03") },
-        new Users { FullName = "B", Baslangic = DateTime.Parse("2023-02-01"), Profosyonel = DateTime.Parse("2023-02-02"), Premium = DateTime.Parse("2023-02-03") }
+        new Users { FullName = "A", Baslangic = DateTime.Parse("2023-01-01"), Profosyonel = DateTime.Parse("2023-01-02"), Premium = DateTime.Parse("2023-01-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")},
+        new Users { FullName = "B", Baslangic = DateTime.Parse("2023-02-01"), Profosyonel = DateTime.Parse("2023-02-02"), Premium = DateTime.Parse("2023-02-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")}
         // Daha fazla kullanıcı ekleyebilirsiniz
     };
 

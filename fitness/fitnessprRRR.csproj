@@ -149,7 +149,7 @@
     <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KayitController.cs" />
-    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,6 +162,8 @@
     <Compile Include="Models\Hoca.cs" />
     <Compile Include="Models\Model2.cs" />
     <Compile Include="Models\Model3.cs" />
+    <Compile Include="Models\Model4.cs" />
+    <Compile Include="Models\Model5.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1077,7 +1079,6 @@
     <Content Include="Areas\Admin\Views\SanalPos\Payment.cshtml" />
     <Content Include="Areas\Admin\Views\Invoice\PaymentSuccess.cshtml" />
     <Content Include="Areas\Admin\Views\Invoice\PaymentError.cshtml" />
-    <Content Include="Areas\Admin\Views\Fiyatlar\Sil.cshtml" />
     <Content Include="Areas\Admin\Views\Fiyatlar\Guncelle.cshtml" />
     <Content Include="Areas\Admin\Views\Uyeler\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Hocalar\Index.cshtml" />
@@ -1139,6 +1140,7 @@
     <Content Include="Views\Fiyat\Fiyat.cshtml" />
     <Content Include="Views\Giris\Giris.cshtml" />
     <Content Include="Views\Kayit\Kayit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

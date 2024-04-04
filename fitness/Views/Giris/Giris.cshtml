@@ -3,11 +3,46 @@
 <div class="qr-container" style="margin-top:10rem; margin-bottom:2rem; ">
     <div class=" row" style="font-weight:10rem;margin-top:2rem; margin-bottom:2rem;">
         <div style="margin-left: 10rem; margin-top: 2rem; margin-bottom: 2rem;">
-            <h1>@Html.DisplayNameFor(model => model.FullName)</h1>
-            <h1>@Html.DisplayNameFor(model => model.Paket)</h1>
+          
+
         </div>
+
+      
+            <div class="page-content">
+                <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
+                    <div class="breadcrumb-title pe-3">@Model.FullName</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-12 col-xl-12">
+                        <div class="card">
+                            <i style="font-size: 4rem; margin-left:8rem; margin-top:2rem; margin-bottom:1rem;" class="lni lni-user"></i>
+
+                            <div class="card-body">
+                                <h5 class="card-title">@Model.FullName</h5>
+                                <p class="card-text">@Model.Email</p>
+                                <p class="card-text">@Model.Phone</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">@Model.Paket</li>
+                                <li class="list-group-item">@(Model.Baslangic.HasValue ? Model.Baslangic.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.Profosyonel.HasValue ? Model.Profosyonel.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.Premium.HasValue ? Model.Premium.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.BirAylık.HasValue ? Model.BirAylık.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.ÜçAylık.HasValue ? Model.ÜçAylık.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.AltıAylık.HasValue ? Model.AltıAylık.Value.ToShortTimeString() : "-")</li>
+                                <li class="list-group-item">@(Model.Onİki_Aylık.HasValue ? Model.Onİki_Aylık.Value.ToShortTimeString() : "-")</li>
+
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         <div style="margin-left: 15rem; margin-top: 2rem; margin-bottom: 2rem;">
-            <div id="qr-code-container">@Html.DisplayFor(model => model.QRCode)</div>
+            <div id="qr-code-container">@Model.QRCode</div>
             <div id="random-number-container"></div>
         </div>
         <div>
