@@ -43,7 +43,7 @@ namespace fitness.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Contact editContact = db.Contacts.Find(contact.Id);
+                Contact editContact = db.Contacts.Find(contact.id);
                 editContact.Title = contact.Title;
                 editContact.Email = contact.Email;
                 editContact.Phone = contact.Phone;

@@ -8,8 +8,9 @@ namespace fitness.Models
 
     public partial class Contact
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public byte Id { get; set; }
+        public static object[] Id { get; internal set; }
+        public int id { get; set; }
+
 
         [StringLength(200)]
         public string Title { get; set; }

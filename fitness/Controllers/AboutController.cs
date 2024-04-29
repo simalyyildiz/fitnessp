@@ -1,17 +1,55 @@
-﻿using System;
+﻿using fitness.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace fitness.Controllers
 {
     public class AboutController : Controller
     {
-        // GET: About
+        private AcademyContext db = new AcademyContext();
+
         public ActionResult About()
         {
-            return View();
+            var abouts = db.Abouts.ToList();
+            if (abouts == null || !abouts.Any())
+            {
+                return HttpNotFound();
+            }
+            return View(abouts);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Abouts abouts = db.Abouts.Find(id);
+            if (abouts == null)
+            {
+                return HttpNotFound();
+            }
+            return View(abouts);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Abouts abouts)
+        {
+            if (ModelState.IsValid)
+            {
+                Abouts editAbout = db.Abouts.Find(abouts.id);
+                if (editAbout == null)
+                {
+                    return HttpNotFound();
+                }
+                editAbout.Title = abouts.Title;
+                editAbout.Description = abouts.Description;
+                editAbout.Image1URL = abouts.Image1URL;
+                editAbout.PopularDescription = abouts.PopularDescription;
+                editAbout.PopularTitle = abouts.PopularTitle;
+
+                db.SaveChanges();
+                return RedirectToAction("About");
+            }
+            return View(abouts);
         }
     }
 }

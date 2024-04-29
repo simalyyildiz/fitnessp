@@ -19,6 +19,10 @@ namespace fitness.Models
         public object Fiyatlar { get; internal set; }
         public object Hocalar { get; internal set; }
         public object Hoca { get; internal set; }
+        public object Contact { get; internal set; }
+        public DbSet<Abouts> Abouts { get; set; }
+        public DbSet<Classes> Classes { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
