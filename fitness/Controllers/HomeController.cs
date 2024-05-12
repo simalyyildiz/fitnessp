@@ -265,8 +265,7 @@ namespace fitness.Controllers
 
         public ActionResult Kullanici()
         {
-            Session.Clear();
-            return RedirectToAction("Giris" , "Home");
+             return RedirectToAction("Giris" , "Home");
         }
 
 

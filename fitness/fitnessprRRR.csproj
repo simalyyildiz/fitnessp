@@ -131,6 +131,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AboutController.cs" />
     <Compile Include="Areas\Admin\Controllers\AnaSayfaContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AnaSayfaSiniflarController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactMessagesController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashBoardController.cs" />
@@ -1082,9 +1083,13 @@
     <Content Include="Areas\Admin\Views\Fiyatlar\Guncelle.cshtml" />
     <Content Include="Areas\Admin\Views\Uyeler\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Hocalar\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\About\Guncelle.cshtml" />
-    <Content Include="Areas\Admin\Views\About\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AnaSayfaAbout\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AnaSayfaAbout\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AnaSayfaContact\Guncelle.cshtml" />
+    <Content Include="Areas\Admin\Views\AnaSayfaSiniflar\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AnaSayfaSiniflar\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AnaSayfaSiniflar\Edittt.cshtml" />
+    <Content Include="Areas\Admin\Views\Kayıt\Signup.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1137,13 +1142,15 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Home\Kayit.cshtml" />
-    <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\About\About.cshtml" />
     <Content Include="Views\Ekip\Ekip.cshtml" />
     <Content Include="Views\Fiyat\Fiyat.cshtml" />
     <Content Include="Views\Giris\Giris.cshtml" />
     <Content Include="Views\Kayit\Kayit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\Signup.cshtml" />
+    <Content Include="Views\Contact\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

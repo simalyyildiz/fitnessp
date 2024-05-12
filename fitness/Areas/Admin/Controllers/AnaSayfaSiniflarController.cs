@@ -9,17 +9,15 @@ using fitness.Models;
 
 namespace fitness.Areas.Admin.Controllers
 {
-    public class AnaSayfaAboutController : Controller
+    public class AnaSayfaSiniflarController : Controller
     {
         private AcademyContext db = new AcademyContext();
-
-        // GET: Admin/About
+        // GET: Admin/AnaSayfaSiniflar
         public ActionResult Index()
         {
-            return View(db.Abouts.FirstOrDefault(x => x.id == 1));
+            return View(db.Classes.FirstOrDefault(x => x.id == 1));
+           
         }
-
-
 
         // GET: Admin/Abouts/Edit/5
         public ActionResult Edit(int? id)
@@ -29,34 +27,41 @@ namespace fitness.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Abouts abouts = db.Abouts.Find(id);
-            if (abouts == null)
+            Classes classes = db.Classes.Find(id);
+            if (classes == null)
             {
                 return HttpNotFound();
             }
-            return View(abouts);
+            return View(classes);
         }
+
 
         // POST: Admin/Abouts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Abouts abouts)
+        public ActionResult Edit(Classes classes)
         {
             if (ModelState.IsValid)
             {
-                Abouts editAbout = db.Abouts.Find(abouts.id);
-                editAbout.Title = abouts.Title;
-                editAbout.Description = abouts.Description;
-                editAbout.Image1URL = abouts.Image1URL;
-                editAbout.PopularDescription = abouts.PopularDescription;
-                editAbout.PopularTitle = abouts.PopularTitle;
-
+                Classes editAbout = db.Classes.Find(classes.id);
+                editAbout.Title = classes.Title;
+                editAbout.Title2 = classes.Title2;
+                editAbout.Title3 = classes.Title3;
+                editAbout.Description1 = classes.Description1;
+                editAbout.Description2 = classes.Description2;
+                editAbout.Description3 = classes.Description3;
+                editAbout.ImgUrl1 = classes.ImgUrl1;
+                editAbout.ImgUrl2 = classes.ImgUrl2;
+                editAbout.ImgUrl3 = classes.ImgUrl3;
+                editAbout.jumDescription = classes.jumDescription;
+                editAbout.jumTitle = classes.jumTitle;
+               
                 db.SaveChanges();
                 return RedirectToAction("index");
             }
-            return View(abouts);
+            return View(classes);
         }
 
 

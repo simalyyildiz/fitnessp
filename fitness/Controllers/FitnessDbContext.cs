@@ -7,7 +7,6 @@
         public object Giris { get; internal set; }
         public object Kullanici { get; internal set; }
         public object Users { get; internal set; }
-
-
+        public object Contacts { get; internal set; }
     }
 }

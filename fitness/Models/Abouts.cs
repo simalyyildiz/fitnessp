@@ -1,6 +1,7 @@
 namespace fitness.Models
 {
     using System;
+    
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,6 @@ namespace fitness.Models
 
     public partial class Abouts
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         [StringLength(200)]

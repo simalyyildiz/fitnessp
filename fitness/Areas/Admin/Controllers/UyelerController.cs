@@ -12,6 +12,7 @@ namespace fitness.Areas.Admin.Controllers
 {
     public class UyelerController : Controller
     {
+         
         AcademyContext context = new AcademyContext();
         private AcademyContext db = new AcademyContext();
 
@@ -20,13 +21,13 @@ namespace fitness.Areas.Admin.Controllers
         // GET: Admin/Uyeler
         public ActionResult Index()
         {
-            List<Users> users = db.Users.ToList();
+            var users = context.Users.ToList(); // Kullanıcıları alın
             return View(users);
         }
-   
-        // GET: Admin/Contacts/Details/5
 
-        // GET: Admin/Contacts/Edit/5
+
+
+        [HttpPost]
         public ActionResult Edit(int id)
         {
 
@@ -45,9 +46,15 @@ namespace fitness.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Users users)
         {
+
             if (ModelState.IsValid)
             {
-                Users editUsers = db.Users.Find(Users.Id);
+                Users editUsers = db.Users.Find(Users.Id); // Değişiklik yapılmak istenen kullanıcıyı bulun
+                if (editUsers == null)
+                {
+                    return HttpNotFound();
+                }
+                Users users1 = db.Users.Find(Users.Id);
                 editUsers.FullName = users.FullName;
                 editUsers.Email = users.Email;
                 editUsers.Phone = users.Phone;
@@ -62,7 +69,7 @@ namespace fitness.Areas.Admin.Controllers
                 editUsers.Onİki_Aylık = users.Onİki_Aylık;
 
                 db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
             }
             return View(users);
         }
@@ -70,11 +77,11 @@ namespace fitness.Areas.Admin.Controllers
         public ActionResult Zaman()
         {
             var user = new List<Users>
-    {
-        new Users { FullName = "A", Baslangic = DateTime.Parse("2023-01-01"), Profosyonel = DateTime.Parse("2023-01-02"), Premium = DateTime.Parse("2023-01-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")},
-        new Users { FullName = "B", Baslangic = DateTime.Parse("2023-02-01"), Profosyonel = DateTime.Parse("2023-02-02"), Premium = DateTime.Parse("2023-02-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")}
-        // Daha fazla kullanıcı ekleyebilirsiniz
-    };
+        {
+            new Users { FullName = "A", Baslangic = DateTime.Parse("2023-01-01"), Profosyonel = DateTime.Parse("2023-01-02"), Premium = DateTime.Parse("2023-01-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")},
+            new Users { FullName = "B", Baslangic = DateTime.Parse("2023-02-01"), Profosyonel = DateTime.Parse("2023-02-02"), Premium = DateTime.Parse("2023-02-03") , BirAylık = DateTime.Parse("2023-01-02") , ÜçAylık = DateTime.Parse("2023-01-02") ,  AltıAylık = DateTime.Parse("2023-01-02") ,  Onİki_Aylık = DateTime.Parse("2023-01-02")}
+            // Daha fazla kullanıcı ekleyebilirsiniz
+        };
 
             return View(user);
         }

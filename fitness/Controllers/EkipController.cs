@@ -43,17 +43,17 @@ namespace fitness.Controllers
         {
             if (ModelState.IsValid)
             {
-                Classes editUsers = db.Classes.Find(classes.id);
-                editUsers.Title = classes.Title;
-                editUsers.Title2 = classes.Title2;
-                editUsers.Title3 = classes.Title3;
-                editUsers.ImgUrl1 = classes.ImgUrl1;
-                editUsers.ImgUrl2 = classes.ImgUrl2;
-                editUsers.ImgUrl3 = classes.ImgUrl3;
-                editUsers.Description1 = classes.Description1;
-                editUsers.Description2 = classes.Description2;
-                editUsers.Description3 = classes.Description3;
-                editUsers.PopulerTitle = classes.PopulerTitle;
+                Classes editEkip = db.Classes.Find(classes.id);
+                editEkip.Title = classes.Title;
+                editEkip.Title2 = classes.Title2;
+                editEkip.Title3 = classes.Title3;
+                editEkip.ImgUrl1 = classes.ImgUrl1;
+                editEkip.ImgUrl2 = classes.ImgUrl2;
+                editEkip.ImgUrl3 = classes.ImgUrl3;
+                editEkip.Description1 = classes.Description1;
+                editEkip.Description2 = classes.Description2;
+                editEkip.Description3 = classes.Description3;
+                editEkip.PopulerTitle = classes.PopulerTitle;
 
                 db.SaveChanges();
                 return RedirectToAction("ekip");

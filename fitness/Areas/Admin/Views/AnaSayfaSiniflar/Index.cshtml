@@ -1,0 +1,114 @@
+﻿ 
+
+@model fitness.Models.Classes
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div>
+    <h4>Eğitmenlerimiz</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jumDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jumDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jumTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jumTitle)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("AnaSayfaSiniflar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

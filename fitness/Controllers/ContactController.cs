@@ -1,40 +1,37 @@
-﻿using fitness.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
+using fitness.Models;
+
 namespace fitness.Controllers
 {
+
     public class ContactController : Controller
     {
-        AcademyContext context = new AcademyContext();
+        AcademyContext db = new AcademyContext();
 
         // GET: Contact
         public ActionResult Contact()
         {
             return View();
         }
-
-        // POST: /Home/Contact
+        // POST: /Contact/ContactModel
         [HttpPost]
-        public ActionResult Contact(Contact model)
+        public ActionResult Contact(Contact contactModel)
         {
-            if (ModelState.IsValid)
+            if (contactModel is null)
             {
-                context.Contacts.Add(model);
-                context.SaveChanges();
-                return RedirectToAction("ContactConfirmation");
+                return View(contactModel);
             }
 
-            return View(model);
+            db.Contacts.Add(contactModel);
+            db.SaveChanges();
+            return RedirectToAction("Contact");
         }
-
-        public ActionResult ContactConfirmation()
-        {
-            return View();
-        }
-
     }
 }

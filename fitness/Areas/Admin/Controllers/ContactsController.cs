@@ -12,57 +12,15 @@ namespace fitness.Areas.Admin.Controllers
 {
     public class ContactsController : Controller
     {
-        private AcademyContext db = new AcademyContext();
+        AcademyContext db = new AcademyContext();
+
 
         // GET: Admin/Contacts
         public ActionResult Index()
         {
-            return View(db.Contacts.FirstOrDefault());
+            var contacts = db.Contacts.ToList(); // Kullanıcıları alın
+            return View(contacts);
         }
 
-        // GET: Admin/Contacts/Details/5
-
-        // GET: Admin/Contacts/Edit/5
-        public ActionResult Edit(int id)
-        {
-
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-
-        // POST: Admin/Contacts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                Contact editContact = db.Contacts.Find(contact.id);
-                editContact.Title = contact.Title;
-                editContact.Email = contact.Email;
-                editContact.Phone = contact.Phone;
-
-                db.SaveChanges();
-                return RedirectToAction("index");
-            }
-            return View(contact);
-        }
-
-
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

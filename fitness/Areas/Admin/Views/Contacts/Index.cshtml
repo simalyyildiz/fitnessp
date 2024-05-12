@@ -1,4 +1,4 @@
-﻿@model fitness.Models.Contact
+﻿@model List<fitness.Models.Contact>
 
 @{
     ViewBag.Title = "Index";
@@ -10,30 +10,33 @@
     <div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">İletişim</div>
     </div>
+    @foreach (var contact in Model)
+    {
+        <!--end row-->
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card radius-15 bg-warning">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center gap-2">
+                            <i style="font-size: 2rem;" class="lni lni-users"></i>
 
-    <!--end row-->
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="card radius-15 bg-warning">
-                <div class="card-body">
-                    <div class="d-flex align-items-center gap-2">
-                        <i style="font-size: 2rem;" class="lni lni-users"></i>
-
-                        <div class="">
-                            <h5 class="mb-0">  @Html.DisplayNameFor(model => model.Title)</h5>
-                            <p class="mb-0"> @Html.DisplayNameFor(model => model.Email)</p>
-                            <div class="list-inline contacts-social mt-2">
-                                <i class="bx bxs-phone"></i>
-                                <a href="javascript:;" class="">@Html.DisplayNameFor(model => model.Phone)</a>
+                            <div class="">
+                                <h5 class="mb-0">  @contact.Title</h5>
+                                <p class="mb-0"> @contact.Email</p>
+                                <p class="mb-0"> @contact.ContactMessageText</p>
+                                <div class="list-inline contacts-social mt-2">
+                                    <i class="bx bxs-phone"></i>
+                                    <a href="javascript:;" class="">@contact.Phone</a>
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
+        <!--end row-->
+    }
     </div>
-    <!--end row-->
-</div>

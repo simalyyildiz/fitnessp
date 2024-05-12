@@ -10,40 +10,24 @@ namespace fitness.Areas.Admin.Controllers
 {
     public class KayıtController : Controller
     {
-
+        AcademyContext entity = new AcademyContext();
         AcademyContext context = new AcademyContext();
         private AcademyContext db = new AcademyContext();
         // GET: Admin/Kayıt
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Kayıt()
+
+        public ActionResult Signup()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Kayıt(Users users)
+        public ActionResult Signup(Users userinfo)
         {
-            if (db.Users.Any(x => x.FullName == users.FullName))
-            {
-                ViewBag.Notigication = "Hesabınız tamamlanmıştır";
-                return View();
-            }
-            else
-            {
-                db.Users.Add(users);
-                db.SaveChanges();
-
-                Session["FullName"] = users.FullName.ToString();
-                Session["Phone"] = users.Phone.ToString();
-                Session["Email"] = users.Email.ToString();
-                Session["Password"] = users.Password.ToString();
-
-                return RedirectToAction("Giris", "Home");
-            }
+            entity.Users.Add(userinfo);
+            entity.SaveChanges();
+            return RedirectToAction("Signup");
         }
-
 
     }
 }
+
+ 

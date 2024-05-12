@@ -6,23 +6,62 @@
 <!-- Hizmetlerimiz bölümü başlangıcı -->
 <div class="our_section layout_padding">
     <div class="container">
-        <h1 class="our_text"><strong>SINIFLARIMIZ</strong></h1>
+        <h1 class="our_text">
+            <strong>
+
+                @foreach (var classes in Model)
+                {
+                    @classes.PopulerTitle
+                }
+
+            </strong>
+        </h1>
 
         <div class="row padding_top_0">
             <div class="col-lg-4">
                 <div class="image_7"><a href="#"><img src="~/Content/img/img-1.png"></a></div>
-                <h2 class="design_text">HALTER</h2>
-                <p class="fact_text">Güçlü ve fit bir vücut için temel bir antrenman olan halter, kas kütlenizi artırırken dayanıklılığınızı geliştirmenize yardımcı olur. Halter antrenmanları, hedeflerinize ulaşmanız için mükemmel bir yoldur.</p>
+                <h2 class="design_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Title
+                    }
+                </h2>
+                <p class="fact_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Description1
+                    }
+                </p>
             </div>
             <div class="col-lg-4">
                 <div class="image_7"><a href="#"><img src="~/Content/img/img-2.png"></a></div>
-                <h2 class="design_text">KAPALI SPİN BİSİKLETİ</h2>
-                <p class="fact_text">Kapalı spin bisikleti, enerjik bir atmosferde kardiyo egzersizi yapmanın harika bir yoludur. Hem eğlenceli hem de etkili olan bu antrenman, kondisyonunuzu artırırken kalori yakmanıza da yardımcı olur.</p>
+                <h2 class="design_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Title2
+                    }
+                </h2>
+                <p class="fact_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Description2
+                    }
+                </p>
             </div>
             <div class="col-lg-4">
                 <div class="image_7"><a href="#"><img src="~/Content/img/img-3.png"></a></div>
-                <h2 class="design_text">CORE EGZERSİZİ</h2>
-                <p class="fact_text">Vücudunuzun merkezi olan core bölgesini güçlendiren bu egzersizler, sadece karın kaslarınızı değil, aynı zamanda bel, sırt ve kalça kaslarınızı da hedefler. Core egzersizleri, denge, stabilite ve güç kazanmanızı destekleyerek genel vücut sağlığınıza olumlu katkı sağlar.</p>
+                <h2 class="design_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Title3
+                    }
+                </h2>
+                <p class="fact_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.Description3
+                    }
+                </p>
             </div>
 
 
@@ -36,8 +75,18 @@
     <div class="container">
         <div class="row">
             <div>
-                <h1 class="partner_text">PARTNERİN<br>EN İYİLERİ</h1>
-                <p class="lorem_ipsum_text">Fitness merkezimizde yer alan hocalarımız sadece bedeninizi değil, ruhunuzu da canlandırmak için burada! Her biri kendi alanında uzman, enerji dolu ve size en iyi versiyonunuza ulaşmanızda yardımcı olmaya kararlı.</p>
+                <h1 class="partner_text">
+                    PARTNERİN<br> @foreach (var classes in Model)
+                    {
+                        @classes.jumTitle
+                    }
+                </h1>
+                <p class="lorem_ipsum_text">
+                    @foreach (var classes in Model)
+                    {
+                        @classes.jumDescription
+                    }
+                </p>
             </div>
             @*<div>
                     <img style="width: 2rem; height: 2rem;" src="~/Content/img/0a0b494aca2916c72ac04264690b7436.png" />
@@ -56,7 +105,7 @@
         <div class="row padding_top_0">
             <div class="col-lg-4">
                 <div class="image_7"><a href="#"><img src="~/Content/img/img-1.png"></a></div>
-                <h2 class="design_text">HALTER</h2>
+                <h2 class="design_text">SINIFLARIMIZ</h2>
                 <p class="fact_text">Güçlü ve fit bir vücut için temel bir antrenman olan halter, kas kütlenizi artırırken dayanıklılığınızı geliştirmenize yardımcı olur. Halter antrenmanları, hedeflerinize ulaşmanız için mükemmel bir yoldur.</p>
             </div>
             <div class="col-lg-4">
